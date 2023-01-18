@@ -1,0 +1,73 @@
+.reg_bg{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Pixel';
+  color: white;
+  text-shadow: 1px 1px 3px #454543;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .reg_form{
+    width: 750px;
+    height: 534px;
+    filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.4));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .reg_title{
+      margin-top: 68px;
+      font-size: 25px;
+      text-align: center;
+    }
+
+
+    .reg_inputs{
+      width: 600px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      #reg_login_input{
+        width: 250px;
+        height: 40px;
+        margin-top: 50px;
+      }
+      .reg_input,#reg_mail_input,#reg_name_input,#reg_phone_input,#reg_password_input,#reg_againPassword_input{
+        width: 250px;
+        height: 40px;
+        margin-top: 50px;
+        background: #A0A0A0;
+        border: 3px solid #525252;
+        font-family: 'Pixel';
+        font-size: 14px;
+        color: black;
+        text-indent: 10px;
+      }
+    }
+
+    .reg_btns{
+      width: 600px;
+      margin-top: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      #reg_btn_play{
+        width: 250px;
+        height: 50px;
+      }
+
+      .reg_btn_auth{
+        font-size: 14px;
+        color: #A0A0A0;
+        text-shadow: 1px 1px 5px #454543;
+        &:hover{
+          color: white;
+        }
+      }
+    }
+  }
+}

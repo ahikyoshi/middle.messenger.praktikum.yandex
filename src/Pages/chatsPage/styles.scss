@@ -1,0 +1,120 @@
+.chats_bg{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Pixel';
+
+  // chatsPage navigation
+  .chats_nav{
+    width: 250px;
+    height: 100vh;
+    float: left;
+
+    // Profile in nav list
+    .chats_profile{
+      display: flex;
+      align-items: center;
+
+      .chats_profile_icon{
+        width: 50px;
+        height: 50px;
+        margin: 5px 0 0 5px;
+      }
+
+      .chats_profile_title{
+        margin: 0 20px;
+        font-size: 14px;
+        color: #A0A0A0;
+        text-shadow: 1px 1px 3px #454543;
+      }
+
+      .chats_profile_arrow{
+        cursor: pointer;
+      }
+
+    }
+    // chatsPage Search
+    .chats_search{
+      width: 220px;
+      height: 30px;
+      margin-top: 20px;
+      margin-left: 5px;
+      background: #A0A0A0;
+      border: 3px solid #525252;
+      font-family: 'Pixel';
+      color: black;
+      font-size: 14px;
+      text-indent: 10px;
+    }
+    // chatsPage List
+    .chats_list{
+      width: 100%;
+      height: 800px;
+      margin-top: 20px;
+    }
+
+  }
+  // Chat with someone
+  .chat{
+    width: calc(100% - 250px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    float: left;
+
+    // friend panel
+    .chat_nav{
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      align-items: center;
+
+      .chat_icon{
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+      }
+      .chat_title{
+        margin-left: 20px;
+        color: #A0A0A0;
+        text-shadow: 1px 1px 3px #454543;
+      }
+    }
+    // Chat
+    .chat_messages{
+      width: 100%;
+      height: 80vh;
+      background: rgba(0, 0, 0, 0.54);
+
+      .messages{
+        width: 600px;
+        height: auto;
+        margin: 20px;
+        padding: 20px;
+        background-size: 600px auto;
+        color: white;
+        .messages_time{
+          margin-top: 30px;
+        }
+      }
+    }
+    // Panel with your message
+    .chat_panel{
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      #chat_input{
+        width: 600px;
+        height: 50px;
+      }
+      #chat_btn,#file_btn{
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+      }
+    }
+  }
+}

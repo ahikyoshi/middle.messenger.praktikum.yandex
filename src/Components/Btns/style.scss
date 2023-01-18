@@ -1,0 +1,10 @@
+.comp_green_btn{
+  background: #049501;
+  border: 3px solid #026800;
+  font-family: 'Pixel';
+  color: white;
+  font-size: 18px;
+  &:hover{
+    cursor: pointer;
+  }
+}

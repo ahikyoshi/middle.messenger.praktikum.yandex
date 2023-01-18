@@ -1,0 +1,57 @@
+.auth_bg{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Pixel';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .auth_form{
+    width: 500px;
+    height: 534px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.4));
+
+    .auth_title{
+      margin: 90px 0 50px 0;
+      font-size: 25px;
+      color: white;
+      text-shadow: 1px 1px 3px #454543;
+    }
+
+    .auth_input{
+      width: 250px;
+      height: 40px;
+      margin-bottom: 50px;
+      background: #A0A0A0;
+      border: 3px solid #525252;
+      text-indent: 10px;
+      font-family: 'Pixel';
+    }
+
+    #auth_input_login,#auth_input_password{
+      width: 250px;
+      height: 40px;
+      margin-bottom: 50px;
+    }
+
+    #auth_btn_play{
+      width: 250px;
+      height: 53px;
+    }
+
+    .auth_btn_reg{
+      margin-top: 50px;
+      font-size: 14px;
+      color: #A0A0A0;
+      text-shadow: 1px 1px 3px #454543;
+      &:hover{
+        color: white;
+      }
+    }
+
+  }
+}
