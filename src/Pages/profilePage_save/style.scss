@@ -1,0 +1,53 @@
+.profile_bg{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+
+  .profile_nav{
+    width: 70px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .profile_nav_btn{
+      transform: rotate(180deg);
+    }
+  }
+
+  .profile_content{
+    width: calc(100% - 70px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .profile_icon{
+      width: 150px;
+      height: 150px;
+    }
+
+    .profile_inputs{
+      height: 235px;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .profile_btns{
+      width: 500px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: flex-end;
+
+      #profile_btn_save{
+        width: 230px;
+        height: 50px;
+        font-size: 12px;
+      }
+    }
+  }
+}

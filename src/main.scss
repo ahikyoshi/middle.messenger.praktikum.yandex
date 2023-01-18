@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  color: black;
+  text-decoration: black;
+}
+
+@font-face {
+    font-family: 'Pixel'; /* Имя шрифта */
+    src: url('assets/fonts/PressStart2P-Regular.ttf');
+}

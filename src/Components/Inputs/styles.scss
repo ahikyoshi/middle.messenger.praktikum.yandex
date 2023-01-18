@@ -1,0 +1,27 @@
+.comp_input{
+  background: #a0a0a0;
+  border: 3px solid #525252;
+  font-family: 'Pixel';
+  text-indent: 10px;
+}
+
+.comp_settingInput{
+  width: 500px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .comp_settingInput_text,.comp_settingInput_input{
+    margin-left: 10px;
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: white;
+    font-family: Pixel;
+  }
+  .comp_settingInput_input{
+    margin-right: 10px;
+    text-align: right;
+  }
+}

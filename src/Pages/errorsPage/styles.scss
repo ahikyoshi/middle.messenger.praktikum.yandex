@@ -1,0 +1,30 @@
+.err_bg{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Pixel';
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .err_title{
+    font-size: 60px;
+  }
+  .err_subtitle{
+    margin: 50px 0 75px 0;
+    font-size: 20px;
+  }
+
+  .err_btn{
+    width: 340px;
+    height: 50px;
+    background: #049501;
+    border: 3px solid #026800;
+    font-size: 11px;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+  }
+}
