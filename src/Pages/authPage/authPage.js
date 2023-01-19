@@ -17,7 +17,7 @@ export default function authPage(){
     }
 
     const components = {
-        btn_play: btn('auth_btn_play','Войти'),
+        btn_play: btn('auth_btn_play','Войти','submit'),
         login_input: input('auth_input_login','Login','text','login'),
         password_input: input('auth_input_password','Password','text','password')
     }

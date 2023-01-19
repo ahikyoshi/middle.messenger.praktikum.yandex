@@ -6,7 +6,7 @@ export default function chat(item){
     if(item){
         const tpl = _.template(
             '<li class="comp_chat">' +
-                '<img src="<%= item.Img %>" alt="" class="comp_chat_img">' +
+                '<img src="<%= item.Img %>" alt="иконка профиля друга" class="comp_chat_img">' +
                 '<div class="comp_chat_text">' +
                     '<h1 class="comp_chat_title"><%= item.name %></h1>' +
                     '<h2 class="comp_chat_lastMess"><%= item.lastMess %></h2>' +
@@ -16,8 +16,5 @@ export default function chat(item){
         )
         return tpl({item: item})
     }
-
-
-
 
 }

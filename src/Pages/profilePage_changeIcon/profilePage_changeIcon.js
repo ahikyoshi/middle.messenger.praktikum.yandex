@@ -20,7 +20,7 @@ export default function profilePage_changeIcon(){
     }
 
     const Components = {
-        change_icon_save_btn: btn('changeIcon_btn_save','Сохранить'),
+        change_icon_save_btn: btn('changeIcon_btn_save','Сохранить','submit'),
         changeData_btn: btn('profile_btn_changeData','Изменить данные'),
         changePassword_btn: btn('profile_btn_changePassword','Изменить пароль'),
         email_input: settingInput('profile_input_email','ahikyoshi@gmail.com','email',false),
@@ -33,7 +33,7 @@ export default function profilePage_changeIcon(){
         '<main class="profile_bg"  style="background-image: url(<%= img.bg %>)">' +
             '<div class="profile_nav" style="background-image: url(<%= img.nav_bg %>)">' +
                 '<a href="/chats">' +
-                    '<img src="<%= img.arrow_back%>" alt="" class="profile_nav_btn">' +
+                    '<img src="<%= img.arrow_back%>" alt="Вернуться на главную" class="profile_nav_btn">' +
                 '</a>' +
             '</div>' +
         '<div class="profile_content">' +
@@ -51,13 +51,13 @@ export default function profilePage_changeIcon(){
                 '<a href="/profile/password"><%= Components.changePassword_btn %></a>' +
             '</div>' +
         '</div>' +
-        '<div class="changeIcon">' +
+        '<form action="/profile" class="changeIcon">' +
             '<div class="changeIcon_content" style="background-image: url(<%= img.nav_bg %>)">' +
                 '<div class="changeIcon_text">выбрать файл на компьютере</div>' +
-                '<input type="file" name="" id="">' +
-                '<a href="/profile"><%= Components.change_icon_save_btn %></a>' +
+                '<input type="file" name="avatar" id="">' +
+                '<%= Components.change_icon_save_btn %>' +
             '</div>' +
-        '</div>' +
+        '</form>' +
         '</main>'
     )
 

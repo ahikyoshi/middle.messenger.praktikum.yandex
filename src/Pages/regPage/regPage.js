@@ -17,13 +17,13 @@ export default function regPage(){
     }
 
     const components = {
-        play_btn: btn('reg_btn_play','Регистрация'),
-        reg_login_input: input('reg_login_input','Логин','text','first_name'),
-        reg_mail_input: input('reg_mail_input','Почта','text','email'),
-        reg_name_input: input('reg_name_input','Имя','text','login'),
-        reg_phone_input: input('reg_phone_input','Номер телефона','text','phone'),
-        reg_password_input: input('reg_password_input','Парль','password','password'),
-        reg_againPassword_input: input('reg_againPassword_input','Повторите пароль','password','password')
+        play_btn: btn('reg_btn_play','Регистрация','submit'),
+        reg_firstName_input: input('reg_firstName_input','Ваше Имя','text','first_name'),
+        reg_secondName_input: input('reg_secondName_input','Ваша фамилия','text','second_name'),
+        reg_login_input: input('reg_login_input','Логин','text','login'),
+        reg_email_input: input('reg_email_input','Ваша почта','email','email'),
+        reg_password_input: input('reg_password_input','Пароль','password','password'),
+        reg_phone_input: input('reg_phone_input','Телефон','phone','phone')
     }
 
     const tpl = _.template(
@@ -31,12 +31,12 @@ export default function regPage(){
             '<form action="/chats" class="reg_form" style="background-image: url(<%= images.stone_texture %>)">' +
                 '<h1 class="reg_title">Регистрация нового Стива</h1>' +
                 '<div class="reg_inputs">' +
+                    '<%= components.reg_firstName_input %>' +
+                    '<%= components.reg_secondName_input %>' +
                     '<%= components.reg_login_input %>' +
-                    '<%= components.reg_mail_input %>' +
-                    '<%= components.reg_name_input %>' +
-                    '<%= components.reg_phone_input %>' +
+                    '<%= components.reg_email_input %>' +
                     '<%= components.reg_password_input %>' +
-                    '<%= components.reg_againPassword_input %>' +
+                    '<%= components.reg_phone_input %>' +
                 '</div>' +
                 '<div class="reg_btns">' +
                     '<%= components.play_btn %>' +

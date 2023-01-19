@@ -1,6 +1,8 @@
+@import "../../variables.scss";
+
 .comp_input{
-  background: #a0a0a0;
-  border: 3px solid #525252;
+  background: $Primary_input_bg;
+  border: 3px solid $Secondary_input_border;
   font-family: 'Pixel';
   text-indent: 10px;
 }

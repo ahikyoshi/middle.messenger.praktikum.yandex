@@ -30,21 +30,10 @@
       flex-wrap: wrap;
       justify-content: space-between;
 
-      #reg_login_input{
+      #reg_firstName_input,#reg_secondName_input,#reg_login_input,#reg_email_input,#reg_password_input,#reg_phone_input{
         width: 250px;
         height: 40px;
         margin-top: 50px;
-      }
-      .reg_input,#reg_mail_input,#reg_name_input,#reg_phone_input,#reg_password_input,#reg_againPassword_input{
-        width: 250px;
-        height: 40px;
-        margin-top: 50px;
-        background: #A0A0A0;
-        border: 3px solid #525252;
-        font-family: 'Pixel';
-        font-size: 14px;
-        color: black;
-        text-indent: 10px;
       }
     }
 

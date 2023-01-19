@@ -20,21 +20,21 @@ export default function profilePage_password(){
     }
 
     const Components = {
-        save_btn: btn('profile_btn_save','Сохранить'),
-        oldPassword_input: settingInput('profile_input_oldpassword','','oldpassword',true),
-        newPassword_input: settingInput('profile_input_newpassword','','newpassord', true),
-        newPasswordAgain_input: settingInput('profile_input_newpasswordagain','','newpasswordagain',true)
+        save_btn: btn('profile_btn_save','Сохранить','submit'),
+        oldPassword_input: settingInput('profile_input_oldpassword','*****','oldpassword',true,'oldPassword'),
+        newPassword_input: settingInput('profile_input_newpassword','*****','newpassord', true,'newPassword'),
+        newPasswordAgain_input: settingInput('profile_input_newpasswordagain','*****','newpasswordagain',true,'newPassword')
     }
 
     const tpl = _.template(
         '<main class="profile_bg"  style="background-image: url(<%= img.bg %>)">' +
             '<div class="profile_nav" style="background-image: url(<%= img.nav_bg %>)">' +
                 '<a href="/chats">' +
-                    '<img src="<%= img.arrow_back%>" alt="" class="profile_nav_btn">' +
+                    '<img src="<%= img.arrow_back%>" alt="Вернуться на главную" class="profile_nav_btn">' +
                 '</a>' +
             '</div>' +
-        '<div class="profile_content">' +
-            '<img src="<%= img.profile_icon %>" alt="" class="profile_icon">' +
+        '<form action="/profile" class="profile_content">' +
+            '<img src="<%= img.profile_icon %>" alt="Иконка профиля" class="profile_icon">' +
             '<div class="profile_inputs">' +
                 '<%= Components.oldPassword_input %>' +
                 '<%= Components.newPassword_input %>' +
@@ -42,9 +42,9 @@ export default function profilePage_password(){
                 '<%= Components.login_input %>' +
             '</div>' +
             '<div class="profile_btns">' +
-                '<a href="/profile"><%= Components.save_btn %></a>' +
+                '<%= Components.save_btn %>' +
             '</div>' +
-        '</div>' +
+        '</form>' +
         '</main>'
     )
 

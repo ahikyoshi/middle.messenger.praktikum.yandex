@@ -27,7 +27,7 @@ export default function chatsPage(){
 
     const components = {
         send_input: input('chat_input','Ваше сообщение','text','message'),
-        send_btn: btn('chat_btn','S'),
+        send_btn: btn('chat_btn','S','submit'),
         file_btn: btn('file_btn','F')
     }
 
@@ -35,9 +35,9 @@ export default function chatsPage(){
        '<main class="chats_bg" style="background-image: url(<%= images.main_bg %>)">' +
             '<nav class="chats_nav" style="background-image: url(<%= images.nav_bg %>)">' +
                 '<div class="chats_profile">' +
-                    '<img src="<%= images.profile_icon %>" alt="" class="chats_profile_icon">' +
+                    '<img src="<%= images.profile_icon %>" alt="Ваша иконка профиля" class="chats_profile_icon">' +
                     '<h1 class="chats_profile_title">Профиль</h1>' +
-                    '<a href="/profile"><img src="<%= images.arrow %>" alt="" class="chats_profile_arrow"></a>' +
+                    '<a href="/profile"><img src="<%= images.arrow %>" alt="Войти в профиль" class="chats_profile_arrow"></a>' +
                 '</div>' +
                 '<input type="text" class="chats_search" placeholder="Поиск">' +
                 '<ul class="chats_list">' +
@@ -46,7 +46,7 @@ export default function chatsPage(){
             '</nav>' +
             '<div class="chat">' +
                 '<nav class="chat_nav">' +
-                    '<img src="<%= images.profile_icon %>" alt="" class="chat_icon">' +
+                    '<img src="<%= images.profile_icon %>" alt="Иконка профиля друга" class="chat_icon">' +
                     '<h1 class="chat_title">Creeper</h1>' +
                 '</nav>' +
                 '<ul class="chat_messages">' +
@@ -55,11 +55,11 @@ export default function chatsPage(){
                         '<div class="messages_time">14:58</div>' +
                     '</li>' +
                 '</ul>' +
-                '<div class="chat_panel">' +
+                '<form action="/" class="chat_panel">' +
                     '<%= components.send_input %>' +
                     '<%= components.send_btn %>' +
                     '<%= components.file_btn%>' +
-                '</div>' +
+                '</form>' +
             '</div>' +
         '</main>'
     )
