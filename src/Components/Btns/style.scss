@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.comp_green_btn{
+  background: $Primary_btn_bg;
+  border: 3px solid $Secondary_btn_border;
+  font-family: 'Pixel';
+  color: white;
+  font-size: 18px;
+  &:hover{
+    cursor: pointer;
+  }
+}
