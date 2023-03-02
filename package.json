@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "Yandex Pract",
   "scripts": {
-    "build": "parcel build ./src/index.html --no-source-maps",
+    "build": "parcel build ./src/index.html ",
     "devServer": "parcel ./src/index.html  -p 3000",
     "server": "node server.js",
     "eslint": "npx eslint ./src"
