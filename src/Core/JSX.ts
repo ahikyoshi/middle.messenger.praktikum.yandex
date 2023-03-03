@@ -10,10 +10,6 @@ export const JSX = {
           return `${key}="${value}"`;
         }
       });
-      // Убирает лишние объекты из пропсов
-      // console.log(`<${name} ${propsstr.join(' ')}>${content.join("")}</${name}>`)
-      propsstr.splice(propsstr.indexOf("__source=\"[object Object]\""),1);
-      propsstr.splice(propsstr.indexOf("__self=\"[object Window]\""),1);
     // Если пустой тег, не добовляет его вообще
     if (name === undefined) {
       return `${content.join("")}`;
