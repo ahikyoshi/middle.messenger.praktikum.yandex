@@ -14,7 +14,7 @@ interface Props{
 class Input extends Block{
     constructor(props: Props){
         super("div",props);
-        this.props.data_validate = 'false'
+        this.props.data_validate = "false";
     }
 
     protected render(): DocumentFragment {

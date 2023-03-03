@@ -1,17 +1,17 @@
 import Block from "../../Core/Component";
 import template from "./template";
-import './styles.scss'
+import "./styles.scss";
 import Button from "../../Components/Buttons/Buttons";
 
 class error extends Block{
     constructor(props: { returnButton: Button; }){
         super("main",props);
-        if(window.location.pathname === '/error/404'){
-            this.props.title = '404'
-            this.props.text = 'Похоже вы не туда попали'
+        if(window.location.pathname === "/error/404"){
+            this.props.title = "404";
+            this.props.text = "Похоже вы не туда попали";
         }else{
-            this.props.title = '500'
-            this.props.text = 'Мы уже исправляем это'
+            this.props.title = "500";
+            this.props.text = "Мы уже исправляем это";
         }
     }
 
@@ -22,14 +22,14 @@ class error extends Block{
 
 const errorPage = new error({
     returnButton: new Button({
-        text: 'Вернуться на главную',
-        theme: 'main',
-        type: 'button',
-        style: 'error-btn',
-        id: '',
+        text: "Вернуться на главную",
+        theme: "main",
+        type: "button",
+        style: "error-btn",
+        id: "",
         events: {
             click: () => {
-                location.href = '/'
+                location.href = "/";
             }
         }
     })

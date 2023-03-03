@@ -10,30 +10,30 @@ class auth extends Block{
     constructor(props: { loginInput: Input; passwordInput: Input; authButton: Button; registButton: Button; }){
         super("main",props);
 
-        document.title = 'Personal.chats - Авторизация'
+        document.title = "Personal.chats - Авторизация";
 
         setTimeout(()=> {
-            const form = document.getElementById('auth_form')
+            const form = document.getElementById("auth_form");
 
                 form!.onsubmit = (event) => {
-                    event.preventDefault()
-                    const login = (<HTMLInputElement>document.getElementById('auth_login')).value
-                    const password = (<HTMLInputElement>document.getElementById('auth_password')).value
+                    event.preventDefault();
+                    const login = (<HTMLInputElement>document.getElementById("auth_login")).value;
+                    const password = (<HTMLInputElement>document.getElementById("auth_password")).value;
     
-                    if(login === '' || password === ''){
-                        return false
+                    if(login === "" || password === ""){
+                        return false;
                     }
                     const send = {
                         login: login,
                         password: password
-                    }
+                    };
     
-                    console.log(send)
+                    console.log(send);
     
-                    return false
-                }
+                    return false;
+                };
             
-        },500)
+        },500);
     }
     
 
@@ -45,36 +45,36 @@ class auth extends Block{
 const authPage = new auth({
     loginInput: new Input({
         text: "Логин",
-        name: 'login',
+        name: "login",
         id: "auth_login",
         styles: "input_main auth_login",
-        type: 'text',
+        type: "text",
         events: {}}),
     passwordInput: new Input({
         text: "Пароль",
-        name: 'password',
+        name: "password",
         id: "auth_password",
         styles: "input_main auth_password",
-        type: 'password',
+        type: "password",
         events: {}
     }),
     authButton: new Button({
         text: "Войти",
-        theme: 'main',
+        theme: "main",
         style: "auth-button",
-        id: 'auth-btn',
+        id: "auth-btn",
         events: {},
-        type: 'submit'
+        type: "submit"
     }),
     registButton: new Button({
         text: "Создать профиль",
-        theme: 'sub',
+        theme: "sub",
         style: "auth-reg",
-        id: 'auth-regist',
-        type: 'button',
+        id: "auth-regist",
+        type: "button",
         events: {
             click: () => {
-                location.href = '/regist'
+                location.href = "/regist";
             }
         }
     })

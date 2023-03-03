@@ -1,5 +1,5 @@
 import React from "../../Core/JSX";
-export default function template(props: { text: string | undefined; id: string | undefined; styles: string | undefined; type: string | (string & {}) | undefined; name: string | undefined; data_validate: string}){
+export default function template(props: any){
     return(
     <>
     <input 
@@ -12,5 +12,5 @@ export default function template(props: { text: string | undefined; id: string |
         name={props.name}
     /> 
     </>
-    )
+    );
 }

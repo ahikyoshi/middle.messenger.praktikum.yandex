@@ -1,22 +1,22 @@
 const METHODS = {
-    GET: 'GET',
-    POST: 'POST',
-    PUT: 'PUT',
-    DELETE: 'DELETE',
+    GET: "GET",
+    POST: "POST",
+    PUT: "PUT",
+    DELETE: "DELETE",
 };
 
 // Самая простая версия. Реализовать штучку со всеми проверками им предстоит в конце спринта
 // Необязательный метод
 function queryStringify(data) {
-if (typeof data !== 'object') {
-        throw new Error('Data must be object');
+if (typeof data !== "object") {
+        throw new Error("Data must be object");
 }
 
 // Здесь достаточно и [object Object] для объекта
 const keys = Object.keys(data);
 return keys.reduce((result, key, index) => {
-return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
-}, '?');
+return `${result}${key}=${data[key]}${index < keys.length - 1 ? "&" : ""}`;
+}, "?");
 }
 
 class HTTPTransport {
@@ -42,7 +42,7 @@ class HTTPTransport {
 
             return new Promise(function(resolve, reject) {
                     if (!method) {
-                            reject('No method');
+                            reject("No method");
                             return;
                     }
 
@@ -79,4 +79,4 @@ class HTTPTransport {
     };
 }
 
-export default HTTPTransport
+export default HTTPTransport;

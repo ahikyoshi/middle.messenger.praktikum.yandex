@@ -1,6 +1,6 @@
 import React from "../../Core/JSX";
 
-export default function template(props: { list: any[]; }){
+export default function template(props){
     return(
         <div className="chats-messages">
             {props.list.map((item) => {
@@ -13,8 +13,8 @@ export default function template(props: { list: any[]; }){
                         </div>
                         <div className="messages-lastTime">{item.lastTime}</div>
                     </div>
-                )
-            }).join('')}
+                );
+            }).join("")};
         </div>
-    )
+    );
 }

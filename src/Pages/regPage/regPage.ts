@@ -14,28 +14,28 @@ class Page extends Block{
     constructor(props){
         super("main",props);
 
-        document.title = 'Personal.chats - Регистрация'
+        document.title = "Personal.chats - Регистрация";
         
         // Отправка формы
         setTimeout(() => {
 
-            const form = document.getElementById('regist_form')
+            const form = document.getElementById("regist_form");
 
             if(form != null){
                 form.onsubmit = event => {
-                    event.preventDefault()
+                    event.preventDefault();
                     const elements = [
-                        document.getElementById('register_name'),
-                        document.getElementById('register_lastName'),
-                        document.getElementById('register_mail'),
-                        document.getElementById('register_phone'),
-                        document.getElementById('register_login'),
-                        document.getElementById('register_password'),
-                        document.getElementById('register_passwordAgain')
-                    ]
+                        document.getElementById("register_name"),
+                        document.getElementById("register_lastName"),
+                        document.getElementById("register_mail"),
+                        document.getElementById("register_phone"),
+                        document.getElementById("register_login"),
+                        document.getElementById("register_password"),
+                        document.getElementById("register_passwordAgain")
+                    ];
                     for(let i = 0; i < elements.length; i++){
-                            if(elements[i].getAttribute('data_validate') != 'true'){
-                                return false
+                            if(elements[i].getAttribute("data_validate") != "true"){
+                                return false;
                             }
                     }
     
@@ -46,13 +46,13 @@ class Page extends Block{
                         phone: (<HTMLInputElement>elements[3]).value,
                         login: (<HTMLInputElement>elements[4]).value,
                         password: (<HTMLInputElement>elements[5]).value
-                    }
+                    };
     
-                    console.log(request_data)
-                }
+                    console.log(request_data);
+                };
             }
 
-        },300)
+        },300);
     }
 
     protected render(): DocumentFragment {
@@ -64,12 +64,12 @@ const registPage = new Page({
     nameInput: new Input({
         text: "Имя",
         id: "register_name", 
-        name: 'first_name',
-        type: 'text',
+        name: "first_name",
+        type: "text",
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'name')
+                validate(event,"name");
             }
         }
     }),
@@ -77,11 +77,11 @@ const registPage = new Page({
         text: "Фамилия", 
         id: "register_lastName", 
         name: "second_name",
-        type: 'text',
+        type: "text",
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'last_name')
+                validate(event,"last_name");
             }
         }
     }),
@@ -93,75 +93,75 @@ const registPage = new Page({
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'email')
+                validate(event,"email");
             }
         }
     }),
     phoneInput: new Input({
         text: "Телефон",
-        name: 'phone', 
-        type: 'tel', 
+        name: "phone", 
+        type: "tel", 
         id: "register_phone", 
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'phone')
+                validate(event,"phone");
             }
         }
     }),
     loginInput: new Input({
-        text: 'Логин',
-        name: 'login',
-        type: 'text',
+        text: "Логин",
+        name: "login",
+        type: "text",
         id: "register_login",
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'name')
+                validate(event,"name");
             }
         }
     }),
     passwordInput: new Input({
         text: "*****", 
-        name: 'password', 
-        type: 'password', 
+        name: "password", 
+        type: "password", 
         id: "register_password", 
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'password')
+                validate(event,"password");
             }
         }
     }),
     passwordAgainInput: new Input({
         text: "*****", 
-        name: 'password_again', 
-        type: 'password', 
+        name: "password_again", 
+        type: "password", 
         id: "register_passwordAgain", 
         styles: "input_main regist-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                validate(event,'password')
+                validate(event,"password");
             }
         }
     }),
     registerButton: new Button({
         text: "Регистрация",
-        theme: 'main',
+        theme: "main",
         style: "regist-btn",
-        type: 'submit',
-        id: 'asd',
+        type: "submit",
+        id: "asd",
         events: {}
     }),
     loginButton: new Button({
         text: "Уже есть аккаут?",
-        theme: 'sub',
+        theme: "sub",
         style: "regist-auth",
-        type: 'button',
-        id: 'dsa',
+        type: "button",
+        id: "dsa",
         events: {
             click: () => {
-                location.href = '/auth'
+                location.href = "/auth";
             }
         }
     })

@@ -23,16 +23,16 @@ switch (window.location.pathname) {
         render("#root", registPage);
         break;
     case "/chats":
-        render("#root", chatsPage)
+        render("#root", chatsPage);
         break;
     case "/profile":
-        render("#root", profilePage)
+        render("#root", profilePage);
         break;
     case "/profile/settings/info":
-        render("#root", profilePage)
+        render("#root", profilePage);
         break;
-    case '/profile/settings/password':
-        render('#root', profilePage)
+    case "/profile/settings/password":
+        render("#root", profilePage);
         break;
     case "/error/404":
         render("#root", errorPage);

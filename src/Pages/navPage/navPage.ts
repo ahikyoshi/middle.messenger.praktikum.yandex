@@ -1,6 +1,6 @@
 import Block from "../../Core/Component";
 import template from "./template";
-import './styles.scss'
+import "./styles.scss";
 class navigation extends Block{
     constructor(props: {}){
         super("main",props);

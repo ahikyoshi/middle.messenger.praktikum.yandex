@@ -1,4 +1,4 @@
-import React from '../../Core/JSX'
+import React from "../../Core/JSX";
 export default function template(props) {
     return (
         <>
@@ -27,5 +27,5 @@ export default function template(props) {
                 }
             </div>
         </>
-    )
+    );
 }
