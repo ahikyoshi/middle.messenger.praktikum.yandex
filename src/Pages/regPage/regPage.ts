@@ -9,18 +9,15 @@ import validate from "../../utils/validation";
 // Styles
 import "./styles.scss";
 
-// Экземпляр компонента
 class Page extends Block{
-    constructor(props){
-        super("main",props);
-
+    constructor(props: { nameInput: Input; lastNameInput: Input; emailInput: Input; phoneInput: Input; loginInput: Input; passwordInput: Input; passwordAgainInput: Input; registerButton: Button; loginButton: Button; }){
+        super(props);
+        // Set titles for page
         document.title = "Personal.chats - Регистрация";
-        
-        // Отправка формы
+        // Funcions
         setTimeout(() => {
-
+            // Get form
             const form = document.getElementById("regist_form");
-
             if(form != null){
                 form.onsubmit = event => {
                     event.preventDefault();
@@ -54,12 +51,12 @@ class Page extends Block{
 
         },300);
     }
-
+    // Page render
     protected render(): DocumentFragment {
         return this.compile(template,this.props);
     }
 }
-// Компонент
+// Page content
 const registPage = new Page({
     nameInput: new Input({
         text: "Имя",
@@ -166,4 +163,5 @@ const registPage = new Page({
         }
     })
 });
+// Export
 export default registPage;

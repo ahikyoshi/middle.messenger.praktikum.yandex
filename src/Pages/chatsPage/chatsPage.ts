@@ -1,31 +1,32 @@
+// Core
 import Block from "../../Core/Component";
 import template from "./template";
-// Компоненты
+// Components
 import Button from "../../Components/Buttons/Buttons";
 import ChatsList from "../../Components/ChatsList/ChatsList";
-// Стили
-import "./styles.scss";
 import Input from "../../Components/Inputs/Inputs";
 import Chat from "../../Components/Chat/Chat";
-
+// Styles
+import "./styles.scss";
+// Data
 const list = [
     {name: "Alex",lastMessage: "Привет, как дела?",lastTime: "12.12.12",img: "https://kartinkin.net/uploads/posts/2022-03/1648115733_4-kartinkin-net-p-yenot-poloskun-kartinki-4.jpg"},
     {name: "Max", lastMessage: "Слушай, играть пойдешь?",lastTime: "12.12.12",img: "https://placepic.ru/wp-content/uploads/2018/10/interesnie_fakti_o_ejah.jpg"},
     {name: "Elephant", lastMessage: "Жду завтра",lastTime: "12.12.12",img: "https://kipmu.ru/wp-content/uploads/svnsl2.jpg"}
 ];
+
 class chats extends Block{
     constructor(props: { profileButton: Button; searchInput: Input; ChatList: ChatsList; ChatSelected: boolean; Chat: Chat; }){
-        super("main",props);
-
+        super(props);
+        // Set titles for page
         document.title = "Personal.chats - Чаты";
     }
-
+    // Page render
     protected render(): DocumentFragment {
         return this.compile(template,this.props);
     }
 }
-
-
+// Page content
 const chatsPage = new chats({
     profileButton: new Button({
         text: "Профиль >",
@@ -76,4 +77,5 @@ const chatsPage = new chats({
         })
     })
 });
+// Export
 export default chatsPage;

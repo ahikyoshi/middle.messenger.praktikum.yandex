@@ -1,5 +1,4 @@
 @import '../../styles/variables.scss';
-
 .error{
     width: 340px;
     height: 270px;
@@ -12,17 +11,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     .error-title{
         margin-top: 55px;
         margin-bottom: 20px;
         font-size: 40px;
     }
-
     .error-text{
         font-size: 20px;
     }
-
     .error-btn{
         width: 260px;
         height: 40px;

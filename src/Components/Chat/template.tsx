@@ -1,7 +1,7 @@
 import React from "../../Core/JSX";
-export default function template(props) {
+export default function template(props:any) {
     return (
-        <>
+        <div className="chat-block">
             <nav className="chat-info">
                 <div className="chat-img"></div>
                 <div className="chat-name">Alex</div>
@@ -29,6 +29,6 @@ export default function template(props) {
                 {props.chatInput}
                 {props.chatButton}
             </form>
-        </>
+        </div>
     );
 }

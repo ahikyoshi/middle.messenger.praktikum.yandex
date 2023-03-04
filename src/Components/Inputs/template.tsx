@@ -1,7 +1,6 @@
 import React from "../../Core/JSX";
 export default function template(props: any){
     return(
-    <>
     <input 
         placeholder={props.text} 
         id={props.id} 
@@ -10,7 +9,6 @@ export default function template(props: any){
         data_validate="false" 
         autofocus 
         name={props.name}
-    /> 
-    </>
+    />
     );
 }

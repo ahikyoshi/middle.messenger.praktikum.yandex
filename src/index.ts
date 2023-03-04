@@ -1,17 +1,15 @@
-// Ядро
+// Core
 import render from "./Core/render";
-// Страницы
+// Pages
 import authPage from "./Pages/authPage/authPage";
 import registPage from "./Pages/regPage/regPage";
 import navigationPage from "./Pages/navPage/navPage";
 import errorPage from "./Pages/ErrorPage/errorPage";
 import chatsPage from "./Pages/chatsPage/chatsPage";
-// Стили 
-import "./styles/style.scss";
 import profilePage from "./Pages/profilePage/profilePage";
-
-
-// Рендер страницы по url
+// Styles
+import "./styles/style.scss";
+// Routings
 switch (window.location.pathname) {
     case "/":
         render("#root", navigationPage);

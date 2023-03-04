@@ -1,12 +1,10 @@
 @import '../../styles/variables.scss';
-
 .chats-messages{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: $primary_text;
-
     .messages-item{
         height: 50px;
         width: 290px;
@@ -16,7 +14,6 @@
         &:hover{
             color: white;
         }
-
         .messages-img{
             width: 50px;
             height: 50px;
@@ -24,7 +21,6 @@
             background-size: cover;
             border-radius: 100%;
         }
-
         .messages-info{
             width: 195px;
             height: 50px;
@@ -38,7 +34,6 @@
                 overflow: hidden;
             }
         }
-
         .messages-lastTime{
             font-size: 9px;
         }

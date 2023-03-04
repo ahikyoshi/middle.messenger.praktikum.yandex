@@ -1,17 +1,18 @@
+// Core
 import Block from "../../Core/Component";
 import template from "./template";
-// Компоненты
+// Components
 import Button from "../../Components/Buttons/Buttons";
 import Input from "../../Components/Inputs/Inputs";
-//Стили
+// Styles
 import "./styles.scss";
 
 class auth extends Block{
     constructor(props: { loginInput: Input; passwordInput: Input; authButton: Button; registButton: Button; }){
-        super("main",props);
-
+        super(props);
+        // Set titles for page
         document.title = "Personal.chats - Авторизация";
-
+        // Functions
         setTimeout(()=> {
             const form = document.getElementById("auth_form");
 
@@ -35,13 +36,12 @@ class auth extends Block{
             
         },500);
     }
-    
-
+    // Page render
     render(){
         return this.compile(template,this.props);
     }
 }
-
+// Page content
 const authPage = new auth({
     loginInput: new Input({
         text: "Логин",
@@ -79,5 +79,5 @@ const authPage = new auth({
         }
     })
 });
-
+// Export
 export default authPage;

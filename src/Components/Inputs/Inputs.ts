@@ -1,7 +1,9 @@
+// Core
 import Block from "../../Core/Component";
 import template from "./template";
+// Styles
 import "./styles.scss";
-
+// Interface
 interface Props{
     text: string
     name: string
@@ -13,13 +15,13 @@ interface Props{
 
 class Input extends Block{
     constructor(props: Props){
-        super("div",props);
+        super(props);
         this.props.data_validate = "false";
     }
-
+    // Component render
     protected render(): DocumentFragment {
         return this.compile(template,this.props);
     }
 }
-
+// Export
 export default Input;

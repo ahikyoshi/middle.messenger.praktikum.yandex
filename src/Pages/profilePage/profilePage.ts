@@ -1,10 +1,13 @@
+// Core
 import Block from "../../Core/Component";
 import template from "./template";
-import "./styles.scss";
+// Components
 import Button from "../../Components/Buttons/Buttons";
 import Input from "../../Components/Inputs/Inputs";
 import validate from "../../utils/validation";
-
+// Styles
+import "./styles.scss";
+// Data
 const user = {
     mail: "ahikyoshi@gmail.com",
     login: "ahikyoshi",
@@ -15,14 +18,13 @@ const user = {
 };
 
 class profile extends Block {
-    constructor(props) {
-        super("main", props);
-    }
-
-    protected render(): DocumentFragment {
+    constructor(props: { pageSettings: { mode: string; }; Data: { user: { mail: string; login: string; name: string; lastName: string; nameInChat: string; phone: string; }; }; changeInfoButton: Button; changePasswordButton: Button; saveButton: Button; cencelButton: Button; returnButton: Button; mailInput: Input; loginInput: Input; nameInput: Input; lastNameInput: Input; nameInChatInput: Input; phoneInput: Input; oldPasswordInput: Input; newPasswordInput: Input; newPasswordAgainInput: Input; }) {
+        super(props);
+        // Set titles for page
+        document.title = "Personal.chats - Профиль"
+        // Functions
         setTimeout(() => {
             const form = document.getElementById("profile_form");
-
             form!.onsubmit = (event) => {
                 event.preventDefault();
                 if (this.props.pageSettings.mode === "password") {
@@ -35,7 +37,6 @@ class profile extends Block {
                         };
                         console.log(send);
                     }
-
                 }
                 if (this.props.pageSettings.mode === "change") {
                     const data = {
@@ -43,7 +44,7 @@ class profile extends Block {
                         login: (<HTMLInputElement>document.getElementById("profile_login")),
                         name: (<HTMLInputElement>document.getElementById("profile_name")),
                         lastName: (<HTMLInputElement>document.getElementById("profile_nameLast")),
-                        nameInChat: (<HTMLInputElement>document.getElementById("profile_nameInChat")),
+                        nameInChat: (<HTMLInputElement>document.getElementById("profile_display_name")),
                         phone: (<HTMLInputElement>document.getElementById("profile_phone"))
                     };
                     if(data.mail.getAttribute("data_validate") != "false"){
@@ -70,12 +71,14 @@ class profile extends Block {
                 }
                 return false;
             };
-
         }, 500);
+    }
+    // Render Page
+    protected render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }
-
+// Page content
 const profilePage = new profile({
     pageSettings: {
         mode: "info",
@@ -107,7 +110,6 @@ const profilePage = new profile({
             }
         }
     }),
-
     saveButton: new Button({
         text: "Сохранить",
         theme: "main",
@@ -128,7 +130,6 @@ const profilePage = new profile({
             }
         }
     }),
-
     returnButton: new Button({
         text: "<-",
         theme: "main",
@@ -141,7 +142,6 @@ const profilePage = new profile({
             }
         }
     }),
-
     mailInput: new Input({
         text: user.mail,
         name: "email",
@@ -192,9 +192,9 @@ const profilePage = new profile({
     }),
     nameInChatInput: new Input({
         text: "Ahiky",
-        name: "name_in_chat",
+        name: "display_name",
         type: "text",
-        id: "profile_nameInChat",
+        id: "profile_display_name",
         styles: "input_main settings-input",
         events: {
             focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
@@ -247,5 +247,5 @@ const profilePage = new profile({
         }
     })
 });
-
+// Export
 export default profilePage;

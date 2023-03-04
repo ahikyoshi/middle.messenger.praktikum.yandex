@@ -1,5 +1,5 @@
 import React from "../../Core/JSX";
-export default function template(props) {
+export default function template(props: any) {
     if (location.pathname === "/profile") {
         document.title = "Personal.chats - Профиль";
         props.pageSettings.mode = "info";
@@ -13,7 +13,7 @@ export default function template(props) {
         props.pageSettings.mode = "password";
     }
     return (
-        <>
+        <main className="profile-page">
             <div className="profile-return">
                 {props.returnButton}
             </div>
@@ -85,6 +85,6 @@ export default function template(props) {
                     }
                 </form>
             </div>
-        </>
+        </main>
     );
 }

@@ -1,11 +1,9 @@
 @import '../../styles/variables.scss';
-
 .navigation_bar{
     width: 900px;
     height: 40px;
     background-color: $primary_color;
     display: flex;
-
     .navigation_a{
         flex-grow: 1;
         text-align: center;

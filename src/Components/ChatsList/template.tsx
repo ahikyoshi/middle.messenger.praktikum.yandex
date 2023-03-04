@@ -1,9 +1,8 @@
 import React from "../../Core/JSX";
-
-export default function template(props){
+export default function template(props: any){
     return(
         <div className="chats-messages">
-            {props.list.map((item) => {
+            {props.list.map((item: {img: string, name: string, lastMessage: string, lastTime: string}) => {
                 return (
                     <div className="messages-item">
                         <div className="messages-img" style={`background-image: url(${item.img})`}></div>
@@ -14,7 +13,7 @@ export default function template(props){
                         <div className="messages-lastTime">{item.lastTime}</div>
                     </div>
                 );
-            }).join("")};
+            }).join("")}
         </div>
     );
 }

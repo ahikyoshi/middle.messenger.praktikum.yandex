@@ -1,10 +1,12 @@
 import React from "../../Core/JSX";
-export default function template(props) {
+export default function template(props: any) {
     return (
-        <div className="error">
-            <div className="error-title">{props.title}</div>
-            <div className="error-text">{props.text}</div>
-            {props.returnButton}
-        </div>
+        <main className="error-page">
+            <div className="error">
+                <div className="error-title">{props.title}</div>
+                <div className="error-text">{props.text}</div>
+                {props.returnButton}
+            </div>
+        </main>
     );
 }
