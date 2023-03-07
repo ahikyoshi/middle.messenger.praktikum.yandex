@@ -1,48 +1,37 @@
-@import "../../variables.scss";
-
-.auth_bg{
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  font-family: 'Pixel';
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .auth_form{
-    width: 500px;
-    height: 534px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .auth_title{
-      margin: 90px 0 50px 0;
-      font-size: 25px;
-      color: white;
-      text-shadow: 1px 1px 3px $text_shadow;
+@import '../../styles/variables.scss';
+.auth-page {
+    .auth-form {
+        width: 340px;
+        height: 373px;
+        background-color: $primary_color;
+        border-right: 2px solid $secondary_color;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .auth-title {
+            margin: 50px;
+            font-family: Pro;
+            font-weight: 100;
+            color: $primary_text;
+            font-size: 25px;
+        }
+        .auth_login {
+            width: 280px;
+            height: 30px;
+            margin-bottom: 20px;
+        }
+        .auth_password {
+            width: 280px;
+            height: 30px;
+            margin-bottom: 50px;
+        }
+        .auth-button {
+            width: 280px;
+            height: 40px;
+        }
+        .auth-reg {
+            margin-top: 30px;
+        }
     }
-
-    #auth_input_login,#auth_input_password{
-      width: 250px;
-      height: 40px;
-      margin-bottom: 50px;
-    }
-
-    #auth_btn_play{
-      width: 250px;
-      height: 53px;
-    }
-
-    .auth_btn_reg{
-      margin-top: 50px;
-      font-size: 14px;
-      color: $text_color;
-      text-shadow: 1px 1px 3px $text_shadow;
-      &:hover{
-        color: white;
-      }
-    }
-
-  }
 }

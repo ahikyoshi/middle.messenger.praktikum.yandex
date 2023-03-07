@@ -1,0 +1,82 @@
+@import '../../styles/variables.scss';
+.profile-return{
+    width: 60px;
+    height: 100vh;
+    background-color: $primary_color;
+    border-right: 2px solid $secondary_color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .profile-return-btn{
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        letter-spacing: -5px;
+        text-indent: -5px;
+    }
+}
+.profile-settings{
+    width: calc(100% - 60px);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .settings-form{
+        width: 650px;
+        height: 625px;
+        background-color: $primary_color;
+        border-radius: 10px;
+        border-right: 2px solid $secondary_color;
+        border-bottom: 2px solid $secondary_color;
+        font-family: Pro;
+        color: $primary_text;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .settings-img{
+                width: 130px;
+                height: 130px;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                background-color: $secondary_color;
+                border-radius: 100%;
+        }
+        .settings-title{
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        .settings-item{
+            width: 510px;
+            height: 25px;
+            margin-top: 20px;
+            display: flex;
+            .settings-item-name{
+                width: 255px;
+                height: 25px;
+                border-bottom: 1px solid $secondary_color;
+            }
+            .settings-item-content{
+                width: 255px;
+                height: 25px;
+                text-align: right;
+                border-bottom: 1px solid $secondary_color;
+            }
+            .settings-input{
+                width: 255px;
+                height: 25px;
+                text-align: right;
+            }
+        }
+        .settings-btns{
+            width: 510px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .profile-change-info{
+                width: 200px;
+                height: 40px;
+            }
+        }
+    }
+}
