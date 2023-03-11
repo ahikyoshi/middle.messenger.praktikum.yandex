@@ -192,13 +192,6 @@ class Block<P extends Record<string, any> = any>{
     });
   }
 
-  show() {
-    this.getContent()!.style.display = "block";
-  }
-
-  hide() {
-    this.getContent()!.style.display = "none";
-  }
 }
 
 export default Block;

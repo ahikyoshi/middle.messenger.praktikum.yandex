@@ -1,12 +1,14 @@
 // Core
 import Block from "../../Core/Component";
 import template from "./template";
+// Components
+import Button from "../../Components/Buttons/Buttons";
+// Utils
+import Router from "../../Core/Router";
 // Styles
 import "./styles.scss";
-import Button from "../../Components/Buttons/Buttons";
-import Router from "../../Core/Router";
 
-class navigation extends Block{
+export class navigation extends Block{
     constructor(props: any){
         super(props);
         // Set titles for page
@@ -17,13 +19,37 @@ class navigation extends Block{
             text: "signUp",
             theme: "sub",
             style: "nav-link",
-            id: "asd",
+            id: "",
             type: "button",
             events: {
-                click: event => {
+                click: () => {
                     Router.go('/signup')
                 }
             },
+        })
+        this.children.signInButton = new Button({
+            text: "signIn",
+            theme: "sub",
+            style: "nav-link",
+            id: "",
+            type: "button",
+            events: {
+                click: () => {
+                    Router.go('/signin')
+                }
+            }
+        }),
+        this.children.chatsButton = new Button({
+            text: "chats",
+            theme: "sub",
+            style: "nav-link",
+            id: "",
+            type: "button",
+            events: {
+                click: () => {
+                    Router.go("/chats")
+                }
+            }
         })
     }
     // Page render
@@ -31,5 +57,3 @@ class navigation extends Block{
         return this.compile(template, this.props);
     }
 }
-// Export
-export default navigation;

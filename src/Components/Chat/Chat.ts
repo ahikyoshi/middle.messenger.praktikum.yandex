@@ -2,13 +2,11 @@
 import Block from "../../Core/Component";
 import template from "./template";
 // Components
-import Button from "../Buttons/Buttons";
-import Input from "../Inputs/Inputs";
 // Styles
 import "./styles.scss";
 
 class Chat extends Block{
-    constructor(props: { chatInput: Input; chatButton: Button; }){
+    constructor(props: any){
         super(props);
         // Send data function
         setTimeout(()=> {

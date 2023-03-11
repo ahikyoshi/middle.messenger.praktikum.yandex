@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
-.reg-page{
-    .regist-form{
+.signUp-page{
+    .signUp-form{
         width: 340px;
         height: 588px;
         background: $primary_color;
@@ -10,24 +10,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        .regist-title{
+        .signUp-title{
             margin: 50px 0 30px 0;
             font-size: 25px;
             color: $primary_text;
             font-weight: 100;
             font-family: Pro;
         }
-        .regist-inputs{
+        .signUp-inputs{
             height: 335px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            .regist-input{
+            .signUp-input{
                 width: 287px;
                 height: 30px;
             }
         }
-        .regist-btn{
+        .signUp-btn{
             width: 280px;
             height: 40px;
             margin: 20px 0 30px 0;

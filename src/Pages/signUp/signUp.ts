@@ -1,64 +1,136 @@
 // Core
 import Block from "../../Core/Component";
 import template from "./template";
+import Router from "../../Core/Router";
 // Components
 import Input from "../../Components/Inputs/Inputs";
 import Button from "../../Components/Buttons/Buttons";
 // Utils
 import validate from "../../utils/validation";
+import { sendForm } from "./sendForm";
 // Styles
 import "./styles.scss";
 
-class signUp extends Block{
-    constructor(props: { nameInput: Input; lastNameInput: Input; emailInput: Input; phoneInput: Input; loginInput: Input; passwordInput: Input; passwordAgainInput: Input; registerButton: Button; loginButton: Button; }){
+export class signUp extends Block {
+    constructor(props: null) {
         super(props);
-        // Set titles for page
-        document.title = "Personal.chats - Регистрация";
         // Funcions
-        setTimeout(() => {
-            // Get form
-            const form = document.getElementById("regist_form");
-            if(form != null){
-                form.onsubmit = event => {
-                    event.preventDefault();
-                    const elements = [
-                        document.getElementById("register_name"),
-                        document.getElementById("register_lastName"),
-                        document.getElementById("register_mail"),
-                        document.getElementById("register_phone"),
-                        document.getElementById("register_login"),
-                        document.getElementById("register_password"),
-                        document.getElementById("register_passwordAgain")
-                    ];
-                    for(let i = 0; i < elements.length; i++){
-                            if(elements[i].getAttribute("data_validate") != "true"){
-                                return false;
-                            }
-                    }
-    
-                    const request_data = {
-                        name: (<HTMLInputElement>elements[0]).value,
-                        lastName: (<HTMLInputElement>elements[1]).value,
-                        mail: (<HTMLInputElement>elements[2]).value,
-                        phone: (<HTMLInputElement>elements[3]).value,
-                        login: (<HTMLInputElement>elements[4]).value,
-                        password: (<HTMLInputElement>elements[5]).value
-                    };
-    
-                    console.log(request_data);
-                };
-            }
-
-        },300);
+        setTimeout(() => { sendForm(); },300);
     }
     protected init(): void {
-        
+        // Document title
+        document.title = "Personal.chats - Sign Up";
+        // Children
+        // buttons
+        this.children.signUpButton = new Button({
+            text: "sign up",
+            theme: "main",
+            style: "signUp-btn",
+            type: "submit",
+            id: "asd",
+            events: {}
+        });
+        this.children.signInButton = new Button({
+            text: "sign in",
+            theme: "sub",
+            style: "signUp-auth",
+            type: "button",
+            id: "dsa",
+            events: {
+                click: () => {
+                    Router.go('/signin')
+                }
+            }
+        });
+        // Inputs
+        this.children.firstNameInput = new Input({
+            text: "first name",
+            id: "register_name",
+            name: "first_name",
+            type: "text",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "name");
+                }
+            }
+        });
+        this.children.secondNameInput = new Input({
+            text: "second name",
+            id: "register_lastName",
+            name: "second_name",
+            type: "text",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "last_name");
+                }
+            }
+        });
+        this.children.emailInput = new Input({
+            text: "example@test.com",
+            name: "email",
+            type: "email",
+            id: "register_mail",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "email");
+                }
+            }
+        });
+        this.children.phoneInput = new Input({
+            text: "+9(999)999-99-99",
+            name: "phone",
+            type: "tel",
+            id: "register_phone",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "phone");
+                }
+            }
+        });
+        this.children.loginInput = new Input({
+            text: "login",
+            name: "login",
+            type: "text",
+            id: "register_login",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "name");
+                }
+            }
+        });
+        this.children.passwordInput = new Input({
+            text: "*****",
+            name: "password",
+            type: "password",
+            id: "register_password",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "password");
+                }
+            }
+        });
+        this.children.passwordAgainInput = new Input({
+            text: "*****",
+            name: "password_again",
+            type: "password",
+            id: "register_passwordAgain",
+            styles: "input_main signUp-input",
+            events: {
+                focusout: (event: any) => {
+                    validate(event, "password");
+                }
+            }
+        });
     }
     // Page render
     protected render(): DocumentFragment {
-        return this.compile(template,this.props);
+        return this.compile(template, this.props);
     }
 }
-// Page content
-// Export
-export default signUp;
+

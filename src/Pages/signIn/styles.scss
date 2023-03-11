@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
-.auth-page {
-    .auth-form {
+.signIn-page {
+    .signIn-form {
         width: 340px;
         height: 373px;
         background-color: $primary_color;
@@ -9,7 +9,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        .auth-title {
+        .signIn-title {
             margin: 50px;
             font-family: Pro;
             font-weight: 100;
