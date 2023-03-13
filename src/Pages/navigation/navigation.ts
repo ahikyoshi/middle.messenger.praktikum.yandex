@@ -2,7 +2,7 @@
 import Block from "../../Core/Component";
 import template from "./template";
 // Components
-import Button from "../../Components/Buttons/Buttons";
+import {Button} from "../../Components/Buttons/Buttons";
 // Utils
 import Router from "../../Core/Router";
 // Styles
@@ -48,6 +48,18 @@ export class navigation extends Block{
             events: {
                 click: () => {
                     Router.go("/chats")
+                }
+            }
+        })
+        this.children.profileButton = new Button({
+            text: "profile",
+            theme: "sub",
+            style: "nav-link",
+            id: "",
+            type: "button",
+            events: {
+                click: () => {
+                    Router.go("/profile")
                 }
             }
         })

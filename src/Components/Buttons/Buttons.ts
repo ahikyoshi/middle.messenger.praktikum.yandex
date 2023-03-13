@@ -10,10 +10,10 @@ interface buttonProps{
     style: string
     events: object
     type: "submit" | "button"
-    id: string | undefined
+    id: string
 }
 
-class Button extends Block{
+export class Button extends Block{
     constructor(props: buttonProps){
         super(props);
     }
@@ -22,5 +22,3 @@ class Button extends Block{
         return this.compile(template,this.props);
     }
 }
-// Export
-export default Button;

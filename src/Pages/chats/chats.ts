@@ -2,9 +2,9 @@
 import Block from "../../Core/Component";
 import template from "./template";
 // Components
-import Button from "../../Components/Buttons/Buttons";
+import {Button} from "../../Components/Buttons/Buttons";
 import ChatsList from "../../Components/ChatsList/ChatsList";
-import Input from "../../Components/Inputs/Inputs";
+import {Input} from "../../Components/Inputs/Inputs";
 import Chat from "../../Components/Chat/Chat";
 // Styles
 import "./styles.scss";

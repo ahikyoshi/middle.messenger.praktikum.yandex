@@ -7,6 +7,7 @@ export default function template(props: any) {
                 {props.signUpButton}
                 {props.signInButton}
                 {props.chatsButton}
+                {props.profileButton}
             </nav>
         </main>
     );

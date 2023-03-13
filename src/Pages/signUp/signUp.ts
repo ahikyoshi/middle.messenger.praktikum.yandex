@@ -3,8 +3,8 @@ import Block from "../../Core/Component";
 import template from "./template";
 import Router from "../../Core/Router";
 // Components
-import Input from "../../Components/Inputs/Inputs";
-import Button from "../../Components/Buttons/Buttons";
+import {Input} from "../../Components/Inputs/Inputs";
+import {Button} from "../../Components/Buttons/Buttons";
 // Utils
 import validate from "../../utils/validation";
 import { sendForm } from "./sendForm";

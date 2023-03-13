@@ -6,8 +6,6 @@ export default function template(props: any){
         id={props.id} 
         className={props.styles} 
         type={props.type} 
-        data_validate="false" 
-        autofocus 
         name={props.name}
     />
     );
