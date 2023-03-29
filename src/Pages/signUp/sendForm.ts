@@ -1,3 +1,5 @@
+import { signApi } from "../../Core/Api/singApi";
+import Router from "../../Core/Router";
 export function sendForm() {
     const form = document.getElementById("regist_form");
     if (form != null) {
@@ -19,14 +21,16 @@ export function sendForm() {
             }
 
             const request_data = {
-                name: (<HTMLInputElement>elements[0]).value,
-                lastName: (<HTMLInputElement>elements[1]).value,
-                mail: (<HTMLInputElement>elements[2]).value,
-                phone: (<HTMLInputElement>elements[3]).value,
+                first_name: (<HTMLInputElement>elements[0]).value,
+                second_name: (<HTMLInputElement>elements[1]).value,
                 login: (<HTMLInputElement>elements[4]).value,
-                password: (<HTMLInputElement>elements[5]).value
+                email: (<HTMLInputElement>elements[2]).value,
+                password: (<HTMLInputElement>elements[5]).value,
+                phone: (<HTMLInputElement>elements[3]).value
             };
 
+            signApi.signUp(request_data)
+            Router.go("/chats")
             console.log(request_data);
         };
     }

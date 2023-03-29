@@ -10,6 +10,7 @@ import validate from "../../utils/validation";
 import { sendForm } from "./sendForm";
 // Styles
 import "./styles.scss";
+import { signApi } from "../../Core/Api/singApi";
 
 export class signUp extends Block {
     constructor(props: null) {
@@ -20,6 +21,8 @@ export class signUp extends Block {
     protected init(): void {
         // Document title
         document.title = "Personal.chats - Sign Up";
+        // Request
+        signApi.read().then((res) => { typeof res === "object" && Router.go("/chats") })
         // Children
         // buttons
         this.children.signUpButton = new Button({
