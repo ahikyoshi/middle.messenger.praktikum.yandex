@@ -27,6 +27,13 @@
                 height: 30px;
             }
         }
+        #signUp_error{
+            width: 280px;
+            margin-top: 10px;
+            height: 10px;
+            font-size: 12px;
+            color: $secondary_btn;
+        }
         .signUp-btn{
             width: 280px;
             height: 40px;

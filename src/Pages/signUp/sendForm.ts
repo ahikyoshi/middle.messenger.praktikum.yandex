@@ -12,8 +12,9 @@ export function sendForm() {
                 document.getElementById("register_phone"),
                 document.getElementById("register_login"),
                 document.getElementById("register_password"),
-                document.getElementById("register_passwordAgain")
+                document.getElementById("register_passwordAgain"),
             ];
+            const error = document.getElementById("signUp_error")
             for (let i = 0; i < elements.length; i++) {
                 if (elements[i].getAttribute("data_validate") != "true") {
                     return false;
@@ -29,9 +30,7 @@ export function sendForm() {
                 phone: (<HTMLInputElement>elements[3]).value
             };
 
-            signApi.signUp(request_data)
-            Router.go("/chats")
-            console.log(request_data);
+            signApi.signUp(request_data).then(() => {Router.go("/chats"); console.log(request_data)}).catch((res) => {console.log(res); error.innerHTML = res })
         };
     }
 }

@@ -13,6 +13,7 @@ export default function template(props: any) {
                     {props.passwordInput}
                     {props.passwordAgainInput}
                 </div>
+                <div id="signUp_error"></div>
                 {props.signUpButton}
                 {props.signInButton}
             </form>
