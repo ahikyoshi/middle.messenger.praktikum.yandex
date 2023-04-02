@@ -38,7 +38,7 @@ export class navigation extends Block{
                     Router.go('/signin')
                 }
             }
-        }),
+        })
         this.children.chatsButton = new Button({
             text: "chats",
             theme: "sub",

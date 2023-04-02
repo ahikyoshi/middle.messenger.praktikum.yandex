@@ -3,78 +3,21 @@ import Block from "../../Core/Component";
 import template from "./template";
 import Router from "../../Core/Router";
 // Components
-import {Button} from "../../Components/Buttons/Buttons";
-import {Input} from "../../Components/Inputs/Inputs";
+import { Button } from "../../Components/Buttons/Buttons";
+import { Input } from "../../Components/Inputs/Inputs";
 // Utils
+import { getUserData } from "./utils";
 import validate from "../../utils/validation";
 // Styles
 import "./styles.scss";
-// Data
-const user = {
-    mail: "ahikyoshi@gmail.com",
-    login: "ahikyoshi",
-    name: "Ahiky",
-    lastName: "White",
-    displayName: "Ahiky",
-    phone: "+7(989)255-36-36"
-};
 
 export class profile extends Block {
     constructor(props: any) {
         super(props);
-        // Functions
-        setTimeout(() => {
-            const form = document.getElementById("profile_form");
-            form!.onsubmit = (event) => {
-                event.preventDefault();
-                if (this.props.pageSettings.mode === "password") {
-                    const newPassword = (<HTMLInputElement>document.getElementById("profile_newPassword"));
-                    const oldPassword = (<HTMLInputElement>document.getElementById("profile_oldPassword"));
-                    if (newPassword.getAttribute("data_validate") === "true") {
-                        const send = {
-                            newPassword: newPassword.value,
-                            oldPassword: oldPassword.value
-                        };
-                        console.log(send);
-                    }
-                }
-                if (this.props.pageSettings.mode === "change") {
-                    const data = {
-                        mail: (<HTMLInputElement>document.getElementById("profile_mail")),
-                        login: (<HTMLInputElement>document.getElementById("profile_login")),
-                        name: (<HTMLInputElement>document.getElementById("profile_name")),
-                        lastName: (<HTMLInputElement>document.getElementById("profile_nameLast")),
-                        nameInChat: (<HTMLInputElement>document.getElementById("profile_display_name")),
-                        phone: (<HTMLInputElement>document.getElementById("profile_phone"))
-                    };
-                    if (data.mail.getAttribute("data_validate") != "false") {
-                        if (data.login.getAttribute("data_validate") != "false") {
-                            if (data.name.getAttribute("data_validate") != "false") {
-                                if (data.lastName.getAttribute("data_validate") != "false") {
-                                    if (data.nameInChat.getAttribute("data_validate") != "false") {
-                                        if (data.phone.getAttribute("data_validate") != "false") {
-                                            const user = {
-                                                mail: data.mail.value,
-                                                login: data.login.value,
-                                                name: data.name.value,
-                                                lastName: data.lastName.value,
-                                                nameInChat: data.nameInChat.value,
-                                                phone: data.phone.value
-                                            };
-                                            console.log(user);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return false;
-            };
-        }, 500);
+        // Получение данных пользователя
+        getUserData()
     }
-
-    protected init(): void {
+    protected init() {
         // Component mode
         const path = location.pathname
         switch (path) {
@@ -100,9 +43,9 @@ export class profile extends Block {
                 this.props.mode = "normal"
                 this.props.mainButton = {
                     text: "Save",
-                    event: () => {
-                        Router.go("/profile")
-                    }
+                    // event: () => {
+                    //     Router.go("/profile")
+                    // }
                 }
                 this.props.subButton = {
                     text: "cancel",
@@ -155,15 +98,38 @@ export class profile extends Block {
             theme: "main",
             style: "profile-return-btn",
             type: "button",
+            id: "",
             events: {
                 click: () => {
                     Router.go("/chats")
                 }
             }
         })
+        this.children.leaveButton = new Button({
+            text: "logout",
+            theme: "sub",
+            style: "profile-leave-btn",
+            type: "button",
+            id: "",
+            events: {
+                click: () => {
+                    signApi.leave()
+                    Router.go("/signin")
+                }
+            }
+        })
         // Inputs
+        this.children.idInput = new Input({
+            text: "...",
+            name: "id",
+            type: "text",
+            id: "profile_id",
+            styles: "input_main settings-id",
+            readonly: true,
+            events: {}
+        })
         this.children.mailInput = new Input({
-            text: user.mail,
+            text: "...",
             name: "email",
             type: "text",
             id: "profile_mail",
@@ -176,7 +142,7 @@ export class profile extends Block {
             }
         })
         this.children.loginInput = new Input({
-            text: user.login,
+            text: "...",
             name: "login",
             type: "text",
             id: "profile_login",
@@ -189,7 +155,7 @@ export class profile extends Block {
             }
         })
         this.children.nameInput = new Input({
-            text: user.name,
+            text: "...",
             name: "first_name",
             type: "text",
             id: "profile_name",
@@ -202,7 +168,7 @@ export class profile extends Block {
             }
         })
         this.children.lastNameInput = new Input({
-            text: user.lastName,
+            text: "...",
             name: "second_name",
             type: "text",
             id: "profile_nameLast",
@@ -215,7 +181,7 @@ export class profile extends Block {
             }
         })
         this.children.displayName = new Input({
-            text: user.displayName,
+            text: "...",
             name: "display_name",
             type: "text",
             id: "profile_display_name",
@@ -228,7 +194,7 @@ export class profile extends Block {
             }
         })
         this.children.phoneInput = new Input({
-            text: user.phone,
+            text: "...",
             name: "phone",
             type: "tel",
             id: "profile_phone",
@@ -240,51 +206,41 @@ export class profile extends Block {
                 }
             }
         })
-        this.children.oldPasswordInput = new Input({
-            text: "*****",
-            name: "oldPassword",
-            type: "password",
-            id: "profile_oldPassword",
-            styles: "input_main  settings-input",
-            events: {}
-        })
-        this.children.newPasswordInput = new Input({
-            text: "*****",
-            name: "newPassword",
-            type: "password",
-            id: "profile_newPassword",
-            styles: "input_main  settings-input",
-            events: {
-                focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                    validate(event, "password");
-                }
-            }
-        })
-        this.children.newPasswordAgainInput = new Input({
-            text: "*****",
-            name: "newPasswordAgain",
-            type: "password",
-            id: "profile_oldPasswordAgain",
-            styles: "input_main  settings-input",
-            events: {
-                focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-                    validate(event, "password");
-                }
-            }
-        })
+        // this.children.oldPasswordInput = new Input({
+        //     text: "*****",
+        //     name: "oldPassword",
+        //     type: "password",
+        //     id: "profile_oldPassword",
+        //     styles: "input_main  settings-input",
+        //     events: {}
+        // })
+        // this.children.newPasswordInput = new Input({
+        //     text: "*****",
+        //     name: "newPassword",
+        //     type: "password",
+        //     id: "profile_newPassword",
+        //     styles: "input_main  settings-input",
+        //     events: {
+        //         focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
+        //             validate(event, "password");
+        //         }
+        //     }
+        // })
+        // this.children.newPasswordAgainInput = new Input({
+        //     text: "*****",
+        //     name: "newPasswordAgain",
+        //     type: "password",
+        //     id: "profile_oldPasswordAgain",
+        //     styles: "input_main  settings-input",
+        //     events: {
+        //         focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
+        //             validate(event, "password");
+        //         }
+        //     }
+        // })
     }
     // Render Page
     protected render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }
-
-
-
-
-
-
-
-    
-    
-

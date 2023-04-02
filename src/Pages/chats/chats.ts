@@ -8,6 +8,8 @@ import {Input} from "../../Components/Inputs/Inputs";
 import Chat from "../../Components/Chat/Chat";
 // Styles
 import "./styles.scss";
+import Router from "../../Core/Router";
+import { signApi } from "../../Core/Api/singApi";
 // Data
 const list = [
     { name: "Alex", lastMessage: "Привет, как дела?", lastTime: "12.12.12", img: "http://s4.fotokto.ru/photo/full/587/5874699.jpg" },
@@ -21,6 +23,7 @@ export class chats extends Block {
     }
     // Page render
     protected init(): void {
+        signApi.read().then((res) => console.log(res)).catch((res) => Router.go("/signin"))
         // Document title
         document.title = "Personal.chats - Chats";
         // Props
@@ -64,6 +67,7 @@ export class chats extends Block {
             id: "",
             events: {
                 click: () => {
+                    Router.go("/profile")
                 }
             }
         })

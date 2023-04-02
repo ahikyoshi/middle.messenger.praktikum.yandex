@@ -15,13 +15,13 @@
         text-indent: -5px;
     }
 }
-.profile-settings{
+.profile-content{
     width: calc(100% - 60px);
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    .settings-form{
+    .profile-form{
         width: 650px;
         height: 625px;
         background-color: $primary_color;
@@ -33,32 +33,38 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        .settings-img{
+        .profile-img{
                 width: 130px;
                 height: 130px;
                 margin-top: 30px;
                 margin-bottom: 20px;
                 background-color: $secondary_color;
+                background-size: cover !important;
                 border-radius: 100%;
+                .profile-img-change{
+                    width: 130px;
+                    height: 130px;
+                    background-color: rgba(0, 0, 0, 0.273);
+                    border-radius: 100%;
+                    text-align: center;
+                    line-height: 130px;
+                    display: block;
+                    opacity: 0;
+                    transition: 0.3s;
+                    &:hover{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                }
         }
-        .settings-title{
-            font-size: 20px;
-            margin-bottom: 40px;
-        }
-        .settings-item{
+        .profile-item{
             width: 510px;
             height: 25px;
             margin-top: 20px;
             display: flex;
-            .settings-item-name{
+            .profile-item-name{
                 width: 255px;
                 height: 25px;
-                border-bottom: 1px solid $secondary_color;
-            }
-            .settings-item-content{
-                width: 255px;
-                height: 25px;
-                text-align: right;
                 border-bottom: 1px solid $secondary_color;
             }
             .settings-input{
@@ -67,7 +73,7 @@
                 text-align: right;
             }
         }
-        .settings-btns{
+        .profile-btns{
             width: 510px;
             margin-top: 30px;
             display: flex;
@@ -77,6 +83,9 @@
                 width: 200px;
                 height: 40px;
             }
+        }
+        .profile-leave-btn{
+            margin-top: 35px;
         }
     }
 }

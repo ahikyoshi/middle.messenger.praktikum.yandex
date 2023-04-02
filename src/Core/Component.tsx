@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 
 // Нельзя создавать экземпляр данного класса
 class Block<P extends Record<string, any> = any>{
+  
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -26,7 +27,6 @@ class Block<P extends Record<string, any> = any>{
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
-
     this.children = children;
     this.props = this._makePropsProxy(props);
 
@@ -35,6 +35,7 @@ class Block<P extends Record<string, any> = any>{
     this._registerEvents(eventBus);
 
     eventBus.emit(Block.EVENTS.INIT);
+    
   }
 
   _getChildrenAndProps(childrenAndProps: P): { props: P, children: Record<string, Block | Block[]> } {
@@ -87,11 +88,11 @@ class Block<P extends Record<string, any> = any>{
     this.componentDidMount();
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  }
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
-
     Object.values(this.children).forEach(child => {
       if (Array.isArray(child)) {
         child.forEach(ch => ch.dispatchComponentDidMount());
@@ -135,6 +136,9 @@ class Block<P extends Record<string, any> = any>{
     this._element = newElement;
 
     this._addEvents();
+
+    
+    this.eventBus().emit(Block.EVENTS.FLOW_CDM)
   }
 
   protected compile(template: (context: any) => any, context: any) {
@@ -161,7 +165,6 @@ class Block<P extends Record<string, any> = any>{
       stub.replaceWith(component.getContent()!);
 
     });
-
     return temp.content;
   }
 
