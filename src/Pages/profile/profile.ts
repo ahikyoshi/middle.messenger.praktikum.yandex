@@ -16,59 +16,59 @@ export class profile extends Block {
     constructor(props: any) {
         super(props);
         // Получение данных пользователя
-        getUserData()
-        changeAvatar()
-        sendNewData()
+        getUserData();
+        changeAvatar();
+        sendNewData();
     }
     protected init() {
         // Component mode
-        const path = location.pathname
+        const path = location.pathname;
         switch (path) {
             case "/profile":
-                document.title = "Personal.chats - Profile"
-                this.props.mode = "normal"
+                document.title = "Personal.chats - Profile";
+                this.props.mode = "normal";
                 this.props.mainButton = {
                     text: "Change info",
                     event: () => {
-                        Router.go("/settings")
+                        Router.go("/settings");
                     }
-                }
+                };
                 this.props.subButton = {
                     text: "change password",
                     event: () => {
-                        Router.go("/settings/password")
+                        Router.go("/settings/password");
                     }
-                }
-                this.props.inputs = true
+                };
+                this.props.inputs = true;
                 break;
             case "/settings":
-                document.title = "Personal.chats - Settings"
-                this.props.mode = "normal"
+                document.title = "Personal.chats - Settings";
+                this.props.mode = "normal";
                 this.props.mainButton = {
                     text: "Save",
                     // event: () => {
                     //     Router.go("/profile")
                     // }
-                }
+                };
                 this.props.subButton = {
                     text: "cancel",
                     event: () => {
-                        Router.go("/profile")
+                        Router.go("/profile");
                     }
-                }
+                };
                 break;
             case "/settings/password":
-                document.title = "Personal.chats - Change password"
-                this.props.mode = "password"
+                document.title = "Personal.chats - Change password";
+                this.props.mode = "password";
                 this.props.mainButton = {
                     text: "Save",
-                }
+                };
                 this.props.subButton = {
                     text: "cancel",
                     event: () => {
-                        Router.go("/profile")
+                        Router.go("/profile");
                     }
-                }
+                };
                 break;
         }
         // Children
@@ -82,7 +82,7 @@ export class profile extends Block {
             events: {
                 click: this.props.mainButton.event
             }
-        })
+        });
         this.children.subButton = new Button({
             text: this.props.subButton.text,
             theme: "sub",
@@ -92,7 +92,7 @@ export class profile extends Block {
             events: {
                 click: this.props.subButton.event
             }
-        })
+        });
         this.children.returnButton = new Button({
             text: "<-",
             theme: "main",
@@ -101,10 +101,10 @@ export class profile extends Block {
             id: "",
             events: {
                 click: () => {
-                    Router.go("/chats")
+                    Router.go("/chats");
                 }
             }
-        })
+        });
         this.children.leaveButton = new Button({
             text: "logout",
             theme: "sub",
@@ -113,11 +113,11 @@ export class profile extends Block {
             id: "",
             events: {
                 click: () => {
-                    signApi.leave()
-                    Router.go("/signin")
+                    signApi.leave();
+                    Router.go("/signin");
                 }
             }
-        })
+        });
         // Inputs
         this.children.idInput = new Input({
             text: "...",
@@ -127,7 +127,7 @@ export class profile extends Block {
             styles: "input_main settings-id",
             readonly: true,
             events: {}
-        })
+        });
         this.children.mailInput = new Input({
             text: "...",
             name: "email",
@@ -140,7 +140,7 @@ export class profile extends Block {
                     validate(event, "email");
                 }
             }
-        })
+        });
         this.children.loginInput = new Input({
             text: "...",
             name: "login",
@@ -153,7 +153,7 @@ export class profile extends Block {
                     validate(event, "login");
                 }
             }
-        })
+        });
         this.children.nameInput = new Input({
             text: "...",
             name: "first_name",
@@ -166,7 +166,7 @@ export class profile extends Block {
                     validate(event, "name");
                 }
             }
-        })
+        });
         this.children.lastNameInput = new Input({
             text: "...",
             name: "second_name",
@@ -179,7 +179,7 @@ export class profile extends Block {
                     validate(event, "last_name");
                 }
             }
-        })
+        });
         this.children.displayName = new Input({
             text: "...",
             name: "display_name",
@@ -192,7 +192,7 @@ export class profile extends Block {
                     validate(event, "name");
                 }
             }
-        })
+        });
         this.children.phoneInput = new Input({
             text: "...",
             name: "phone",
@@ -205,7 +205,7 @@ export class profile extends Block {
                     validate(event, "phone");
                 }
             }
-        })
+        });
         this.children.oldPasswordInput = new Input({
             text: "*****",
             name: "oldPassword",
@@ -213,7 +213,7 @@ export class profile extends Block {
             id: "profile_oldPassword",
             styles: "input_main  settings-input",
             events: {}
-        })
+        });
         this.children.newPasswordInput = new Input({
             text: "*****",
             name: "newPassword",
@@ -225,7 +225,7 @@ export class profile extends Block {
                     validate(event, "password");
                 }
             }
-        })
+        });
         this.children.newPasswordAgainInput = new Input({
             text: "*****",
             name: "newPasswordAgain",
@@ -233,7 +233,7 @@ export class profile extends Block {
             id: "profile_newPasswordAgain",
             styles: "input_main  settings-input",
             events: {   }
-        })
+        });
     }
     // Render Page
     protected render(): DocumentFragment {
