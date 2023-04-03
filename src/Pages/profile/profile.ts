@@ -6,16 +6,19 @@ import Router from "../../Core/Router";
 import { Button } from "../../Components/Buttons/Buttons";
 import { Input } from "../../Components/Inputs/Inputs";
 // Utils
-import { getUserData } from "./utils";
+import { changeAvatar, getUserData, sendNewData } from "./utils";
 import validate from "../../utils/validation";
 // Styles
 import "./styles.scss";
+import { signApi } from "../../Core/Api/singApi";
 
 export class profile extends Block {
     constructor(props: any) {
         super(props);
         // Получение данных пользователя
         getUserData()
+        changeAvatar()
+        sendNewData()
     }
     protected init() {
         // Component mode
@@ -59,9 +62,6 @@ export class profile extends Block {
                 this.props.mode = "password"
                 this.props.mainButton = {
                     text: "Save",
-                    event: () => {
-                        Router.go("/profile")
-                    }
                 }
                 this.props.subButton = {
                     text: "cancel",
@@ -206,38 +206,34 @@ export class profile extends Block {
                 }
             }
         })
-        // this.children.oldPasswordInput = new Input({
-        //     text: "*****",
-        //     name: "oldPassword",
-        //     type: "password",
-        //     id: "profile_oldPassword",
-        //     styles: "input_main  settings-input",
-        //     events: {}
-        // })
-        // this.children.newPasswordInput = new Input({
-        //     text: "*****",
-        //     name: "newPassword",
-        //     type: "password",
-        //     id: "profile_newPassword",
-        //     styles: "input_main  settings-input",
-        //     events: {
-        //         focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-        //             validate(event, "password");
-        //         }
-        //     }
-        // })
-        // this.children.newPasswordAgainInput = new Input({
-        //     text: "*****",
-        //     name: "newPasswordAgain",
-        //     type: "password",
-        //     id: "profile_oldPasswordAgain",
-        //     styles: "input_main  settings-input",
-        //     events: {
-        //         focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
-        //             validate(event, "password");
-        //         }
-        //     }
-        // })
+        this.children.oldPasswordInput = new Input({
+            text: "*****",
+            name: "oldPassword",
+            type: "password",
+            id: "profile_oldPassword",
+            styles: "input_main  settings-input",
+            events: {}
+        })
+        this.children.newPasswordInput = new Input({
+            text: "*****",
+            name: "newPassword",
+            type: "password",
+            id: "profile_newPassword",
+            styles: "input_main  settings-input",
+            events: {
+                focusout: (event: { target: { id: string; getBoundingClientRect: () => any; }; }) => {
+                    validate(event, "password");
+                }
+            }
+        })
+        this.children.newPasswordAgainInput = new Input({
+            text: "*****",
+            name: "newPasswordAgain",
+            type: "password",
+            id: "profile_newPasswordAgain",
+            styles: "input_main  settings-input",
+            events: {   }
+        })
     }
     // Render Page
     protected render(): DocumentFragment {

@@ -10,7 +10,7 @@ export default function template(props: any) {
                     <div className="profile-img" id="profile_avatar">
                         <label for="profile_new_avatar" className="profile-img-change">Change avatar</label>
                     </div>
-                    <input type="file" id="profile_new_avatar" hidden/>
+                    <input name="avatar" type="file" id="profile_new_avatar" hidden/>
                     <h1 className="profile-title" id="profile_displayName">Choose display name</h1>
                     {props.mode === "normal" ?
                         <>
@@ -55,6 +55,7 @@ export default function template(props: any) {
                             </div>
                         </>
                     }
+                    <div id="profile-error"></div>
                     <div className="profile-btns">
                         {props.mainButton}
                         {props.subButton}
