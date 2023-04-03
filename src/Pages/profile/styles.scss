@@ -63,12 +63,12 @@
             margin-top: 20px;
             display: flex;
             .profile-item-name{
-                width: 255px;
+                width: 50%;
                 height: 25px;
                 border-bottom: 1px solid $secondary_color;
             }
             .settings-input{
-                width: 255px;
+                width: 50%;
                 height: 25px;
                 text-align: right;
             }
@@ -96,3 +96,4 @@
         }
     }
 }
+@import './media.scss';
