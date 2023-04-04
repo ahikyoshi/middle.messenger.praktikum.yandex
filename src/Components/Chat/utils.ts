@@ -77,8 +77,14 @@ function setMessage(data: string, userId: string){
 }
 
 function sendMessage(socket: WebSocket){
-  socket.send(JSON.stringify({
-    content: 'Моё второе сообщение миру!',
-    type: 'message',
-    }));
+  document.getElementById("chat")?.addEventListener("submit", (e) => {
+    e.preventDefault()
+    console.log("Ну не понимаю я как отправить сообщение, бъет ошибку что веб сокет уже открыт")
+  })
+  // const content = "Hello Diana"
+  // const data = {
+  //   type: 'message',
+  //   content
+  // }
+  // socket.send(data);
 }
