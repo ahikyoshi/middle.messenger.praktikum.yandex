@@ -39,6 +39,14 @@
                 }
             }
         }
+        .chats-newChat{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
     }
     .chat{
         width: calc(100% - 300px);

@@ -1,19 +1,22 @@
 import React from "../../Core/JSX";
 export default function template(props: any){
+    if(props.list === undefined){
+        props.list = []
+    }
     return(
-        <div className="chats-messages">
-            {props.list.map((item: {img: string, name: string, lastMessage: string, lastTime: string}) => {
-                return (
-                    <div className="messages-item">
-                        <div className="messages-img" style={`background-image: url(${item.img})`}></div>
-                        <div className="messages-info">
-                            <span className="messages-name">{item.name}</span>
-                            <span className="messages-lastMessage">{item.lastMessage}</span>
-                        </div>
-                        <div className="messages-lastTime">{item.lastTime}</div>
-                    </div>
-                );
-            }).join("")}
+        <div className="chats-chatList">
+            {props.list.map((item: any) => {
+                 return ( 
+                     <div className="chatList-item" id={`chat_${item.id}`}> 
+                         <div className="chatList-img" style={`background-image: url(${item.avatar})`}></div> 
+                         <div className="chatList-info"> 
+                             <span className="chatList-name">{item.title}</span> 
+                             <span className="chatList-lastMessage">{item.last_message === null ? "Пока нет сообщений" : item.last_message.content}</span> 
+                         </div> 
+                         <div className="chatList-unRead">{item.unread_count === 0 ? "" : item.unread_count}</div> 
+                     </div> 
+                 ); 
+             }).join("")}
         </div>
     );
 }

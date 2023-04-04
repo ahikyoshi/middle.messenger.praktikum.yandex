@@ -4,28 +4,42 @@ import template from "./template";
 // Components
 // Styles
 import "./styles.scss";
+// import { testChats } from "./utils";
+import { openChat } from "./utils";
+import { Button } from "../Buttons/Buttons";
+import { Input } from "../Inputs/Inputs";
 
-class Chat extends Block{
-    constructor(props: any){
+class Component extends Block {
+    constructor(props: any) {
         super(props);
-        // Send data function
-        setTimeout(()=> {
-            const form = document.getElementById("chat");
-                form!.onsubmit = (event) => {
-                    event.preventDefault();
-                    const message = (<HTMLInputElement>document.getElementById("message_input"));                
-                    console.log({
-                        message: message.value
-                    });
-                    message.value = "";
-                    return false;
-                };         
-        },500);
+    }
+    protected init(): void {
+        this.children.chatInput = new Input({
+            text: "message",
+            name: "message",
+            type: "text",
+            id: "chat_message",
+            styles: "chat-message input_main",
+            events: {}
+        })
+        this.children.chatButton = new Button({
+            text: "->",
+            theme: "main",
+            style: "chat-button",
+            id: "",
+            type: "submit",
+            events: {}
+        })
+    }
+    protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+        openChat(this.props.chat_id)
     }
     // Component render
     protected render(): DocumentFragment {
+        
         return this.compile(template, this.props);
     }
 }
 // Export
-export default Chat;
+const Chat = new Component({})
+export default Chat

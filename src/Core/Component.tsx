@@ -38,6 +38,8 @@ class Block<P extends Record<string, any> = any>{
     
   }
 
+
+
   _getChildrenAndProps(childrenAndProps: P): { props: P, children: Record<string, Block | Block[]> } {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block | Block[]> = {};
@@ -170,6 +172,11 @@ class Block<P extends Record<string, any> = any>{
 
   protected render(): DocumentFragment {
     return new DocumentFragment();
+  }
+
+  updateComponent(){
+    console.log("update")
+    this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
   }
 
   getContent() {

@@ -16,6 +16,7 @@ export default function template(props: any) {
                 <div className="chat-list">
                     {props.ChatList}
                 </div>
+                {props.newChatButton}
             </form>
             <div className="chat">
                 {props.ChatSelected === false ?

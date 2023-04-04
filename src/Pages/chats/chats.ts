@@ -3,7 +3,7 @@ import Block from "../../Core/Component";
 import template from "./template";
 // Components
 import {Button} from "../../Components/Buttons/Buttons";
-import ChatsList from "../../Components/ChatsList/ChatsList";
+import {ChatsList} from "../../Components/ChatsList/ChatsList";
 import {Input} from "../../Components/Inputs/Inputs";
 import Chat from "../../Components/Chat/Chat";
 // Styles
@@ -11,54 +11,35 @@ import "./styles.scss";
 import Router from "../../Core/Router";
 import { signApi } from "../../Core/Api/singApi";
 // Data
-const list = [
-    { name: "Alex", lastMessage: "Привет, как дела?", lastTime: "12.12.12", img: "http://s4.fotokto.ru/photo/full/587/5874699.jpg" },
-    { name: "Max", lastMessage: "Слушай, играть пойдешь?", lastTime: "12.12.12", img: "https://placepic.ru/wp-content/uploads/2018/10/interesnie_fakti_o_ejah.jpg" },
-    { name: "Elephant", lastMessage: "Жду завтра", lastTime: "12.12.12", img: "https://kipmu.ru/wp-content/uploads/svnsl2.jpg" }
-];
 
 export class chats extends Block {
     constructor(props: void) {
         super(props);
+        signApi.read().catch((res) => Router.go("/signin"))
     }
     // Page render
     protected init(): void {
-        signApi.read().then((res) => console.log(res)).catch((res) => Router.go("/signin"))
         // Document title
         document.title = "Personal.chats - Chats";
         // Props
-        this.props.ChatSelected = false
+        this.props.ChatSelected = true
         // Children
         // Chats
-        this.children.ChatList = new ChatsList({
-            list: list,
+        this.children.ChatList = new ChatsList({})
+        // Chat
+        this.children.Chat = Chat
+        // Buttons
+        this.children.newChatButton = new Button({
+            text: "+",
+            theme: "main",
+            style: "chats-newChat",
+            type: "button",
+            id: "",
             events: {
                 click: () => {
-                    this.props.ChatSelected = !this.props.ChatSelected
-                    document.title = "Personal.chats - Alex";
                 }
             }
         })
-        // Chat
-        this.children.Chat = new Chat({
-            chatInput: new Input({
-                text: "Сообщение",
-                name: "message",
-                type: "text",
-                id: "message_input",
-                events: {},
-                styles: "chat-message input_main"
-            }),
-            chatButton: new Button({
-                text: "->",
-                theme: "main",
-                style: "chat-button",
-                type: "submit",
-                id: "",
-                events: {}
-            })
-        })
-        // Buttons
         this.children.profileButton = new Button({
             text: "Profile >",
             theme: "sub",

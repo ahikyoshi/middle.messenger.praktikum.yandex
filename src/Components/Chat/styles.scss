@@ -12,10 +12,9 @@
         .chat-img{
             width: 34px;
             height: 34px;
-            margin-left: 15px;
-            margin-right: 10px;
+            margin: 0 10px 0 15px;
+            background-size: cover !important;
             border-radius: 100%;
-            background-color: $secondary_btn;
         }
         .chat-name{
             font-size: 14px;
@@ -33,11 +32,16 @@
         .messages{
             width: 400px;
             height: auto;
+            margin-top: 20px;
             padding: 10px;
             font-size: 15px;
             color: $primary_text;
             background-color: $primary_color;
             border-radius: 0 10px 10px 10px;
+        }
+        .messages-right{
+            margin-left: 600px;
+            border-radius: 10px 0 10px 10px;
         }
     }
     .chat-send{

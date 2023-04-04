@@ -5,6 +5,7 @@ import { userApi } from "../../Core/Api/userApi";
 // Функция получение данных пользователя, и заполнения данных пользователя
 export function getUserData() {
     signApi.read().then((res: any) => {
+        console.log(res.id)
         // Получение данных пользователя
         const data = {
             email: res.email,

@@ -3,15 +3,12 @@ export default function template(props:any) {
     return (
         <div className="chat-block">
             <nav className="chat-info">
-                <div className="chat-img"></div>
-                <div className="chat-name">Alex</div>
+                <div className="chat-img" id="chat_avatar"></div>
+                <div className="chat-name" id="chat_title"></div>
                 <div className="chat-more">...</div>
             </nav>
-            <div className="chat-messages">
-                <div className="messages">
-                    Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.
-                    Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
-                </div>
+            <div className="chat-messages"id="chat_block">
+                
             </div>
             <form className="chat-send" id="chat">
                 <label htmlFor="#chats_files">
