@@ -28,7 +28,6 @@ export function getUserData() {
         // Заполнение полей профиля информацией о пользователе
         let i = 0;
         for (const key in data) {
-            // inputs[i]?.setAttribute("placeholder", data[key]);
             inputs[i]!.value = data[key]
             i++;
         }
