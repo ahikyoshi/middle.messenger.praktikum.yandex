@@ -3,9 +3,10 @@ export default function template(props:any) {
     return (
         <div className="chat-block">
             <nav className="chat-info">
-                <div className="chat-img" id="chat_avatar"></div>
+                <label className="chat-img" id="chat_avatar" for="chat_avatar_input"></label>
+                <input type="file" id="chat_avatar_input" hidden/>
                 <div className="chat-name" id="chat_title"></div>
-                <div className="chat-more">...</div>
+                <div className="chat-more" id="chat_more"></div>
             </nav>
             <div className="chat-messages"id="chat_block">
                 

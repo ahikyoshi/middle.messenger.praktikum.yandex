@@ -14,7 +14,11 @@ class Api extends BaseAPI{
     }
 
     delete(data: any){
-        return this.http.delete(data)
+        return this.http.delete("",data)
+    }
+
+    avatar(data: any){
+        return this.http.put("avatar", data)
     }
     
 }
