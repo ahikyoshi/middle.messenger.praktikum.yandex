@@ -29,12 +29,14 @@
     .chat-messages{
         height: calc(100vh - 100px);
         padding: 20px;
+        overflow-y: scroll;
         .messages{
             width: 400px;
             height: auto;
             margin-top: 20px;
             padding: 10px;
             font-size: 15px;
+            word-wrap: break-word;
             color: $primary_text;
             background-color: $primary_color;
             border-radius: 0 10px 10px 10px;
