@@ -23,7 +23,7 @@ export function sendForm(){
         };
         
         signApi.signIn(send)
-            .then(() => Router.go("/chats"))
+            .then(() => Router.go("/messenger"))
             .catch((res) => {error.innerHTML = res.reason})
     };
 }

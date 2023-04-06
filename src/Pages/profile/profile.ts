@@ -45,10 +45,7 @@ export class profile extends Block {
                 document.title = "Personal.chats - Settings";
                 this.props.mode = "normal";
                 this.props.mainButton = {
-                    text: "Save",
-                    // event: () => {
-                    //     Router.go("/profile")
-                    // }
+                    text: "Save"
                 };
                 this.props.subButton = {
                     text: "cancel",
@@ -101,7 +98,7 @@ export class profile extends Block {
             id: "",
             events: {
                 click: () => {
-                    Router.go("/chats");
+                    Router.go("/messenger");
                 }
             }
         });

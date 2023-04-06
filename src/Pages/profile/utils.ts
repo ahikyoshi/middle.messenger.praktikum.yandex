@@ -7,7 +7,8 @@ export function getUserData() {
     signApi.read().then((res: any) => {
         console.log(res.id)
         // Получение данных пользователя
-        const data = {
+        
+        const data: any = {
             email: res.email,
             login: res.login,
             firstName: res.first_name,
@@ -28,7 +29,7 @@ export function getUserData() {
         // Заполнение полей профиля информацией о пользователе
         let i = 0;
         for (const key in data) {
-            inputs[i]!.value = data[key]
+            (<HTMLInputElement>inputs[i])!.value = data[key]
             i++;
         }
         // Отображаемое имя пользователя
@@ -56,23 +57,23 @@ export function sendNewData() {
                     newPasswordAgain: document.getElementById("profile_newPasswordAgain")
                 };
                 // Проверка введены ли данные
-                if (inputs.oldPassword!.value === "" || inputs.newPassword!.value === "") {
+                if ((<HTMLInputElement>inputs.oldPassword)!.value === "" || (<HTMLInputElement>inputs.newPassword)!.value === "") {
                     profileError("Заполните форму");
                     return false;
                 }
                 // Проверка на корректность валидации
-                if (inputs.newPassword?.getAttribute("data_validate") === "false") {
+                if (inputs.newPassword!.getAttribute("data_validate") === "false") {
                     profileError("Ошибка валидации");
                     return false;
                 }
                 // Проверка на совпадение новых паролей
-                if (inputs.newPassword!.value != inputs.newPasswordAgain!.value) {
+                if ((<HTMLInputElement>inputs.newPassword)!.value != (<HTMLInputElement>inputs.newPasswordAgain)!.value) {
                     profileError("Новые пароли не совпадают");
                     return false;
                 }
                 const data = {
-                    oldPassword: inputs.oldPassword!.value,
-                    newPassword: inputs.newPassword!.value
+                    oldPassword: (<HTMLInputElement>inputs.oldPassword)!.value,
+                    newPassword: (<HTMLInputElement>inputs.newPassword)!.value
                 };
                 userApi.password(data).then(() => {
                     Router.go("/profile");
@@ -90,8 +91,8 @@ export function sendNewData() {
                     document.getElementById("profile_display_name"),
                     document.getElementById("profile_phone"),
                 ];
-                const data = inputs.map((item) => {
-                    if (item.value != "") {
+                const data = inputs.map((item: HTMLInputElement) => {
+                    if (item!.value != "") {
                         return item!.value;
                     } else {
                         return item!.getAttribute("placeholder");
@@ -106,7 +107,7 @@ export function sendNewData() {
                     "phone": data[5]
                 };
                 console.log(sendData);
-                userApi.change(sendData).then((res) => { getUserData(); Router.go("/profile"); }).catch((e) => { profileError(e.reason); });
+                userApi.change(sendData).then(() => { getUserData(); Router.go("/profile"); }).catch((e) => { profileError(e.reason); });
             }
         });
 
@@ -116,14 +117,14 @@ export function sendNewData() {
 export function changeAvatar() {
     setTimeout(() => {
 
-        const input = document.getElementById("profile_new_avatar");
+        const input: any = document.getElementById("profile_new_avatar");
         input!.addEventListener("change", () => {
             // Получение файла
             const data = new FormData();
-            data.append("avatar", input.files[0]);
+            data.append("avatar", input!.files[0]);
             // Отправка файла
             userApi.avatar(data)
-                .then((res) => {
+                .then((res: any) => {
                     document.getElementById("profile_avatar")!.style.background = `url(https://ya-praktikum.tech/api/v2/resources/${res.avatar})`;
                 })
                 .catch((e) => {

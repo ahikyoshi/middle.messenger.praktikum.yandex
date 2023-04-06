@@ -22,7 +22,7 @@ export class signUp extends Block {
         // Document title
         document.title = "Personal.chats - Sign Up";
         // Request
-        signApi.read().then((res) => { typeof res === "object" && Router.go("/chats") })
+        signApi.read().then((res) => { typeof res === "object" && Router.go("/messenger") }).catch((e) => {})
         // Children
         // buttons
         this.children.signUpButton = new Button({
@@ -41,7 +41,7 @@ export class signUp extends Block {
             id: "dsa",
             events: {
                 click: () => {
-                    Router.go('/signin')
+                    Router.go('/')
                 }
             }
         });
@@ -136,4 +136,3 @@ export class signUp extends Block {
         return this.compile(template, this.props);
     }
 }
-
