@@ -15,7 +15,7 @@ import { signApi } from "../../Core/Api/singApi";
 export class chats extends Block {
     constructor(props: void) {
         super(props);
-        signApi.read().catch((res) => Router.go("/signin"))
+        signApi.read().catch((res) => Router.go("/"))
     }
     // Page render
     protected init(): void {

@@ -10,6 +10,7 @@ export default function template(props:any) {
             <div className="chat-messages"id="chat_block">
                 
             </div>
+            <div id="chat_content">
             <form className="chat-send" id="chat">
                 <label htmlFor="#chats_files">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="30" viewBox="0 0 27 30" fill="#E5E5E5" className="chat-files">
@@ -26,6 +27,7 @@ export default function template(props:any) {
                 {props.chatInput}
                 {props.chatButton}
             </form>
+            </div>
         </div>
     );
 }

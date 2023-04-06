@@ -36,7 +36,6 @@ class Component extends Block {
     }
     // Component render
     protected render(): DocumentFragment {
-        
         return this.compile(template, this.props);
     }
 }

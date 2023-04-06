@@ -28,27 +28,37 @@ export async function openChat(id: string) {
   await signApi.read().then((res: any) => { socketData.userId = res.id; })
   // Создание сокета и изменения формы отправки сообщения
   const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${socketData.userId}/${socketData.chatId}/${socketData.token}`)
-  sendMessage(socket)
   // Получение базы сообщений
   socket.addEventListener('open', () => {
     socket.send(JSON.stringify({
       content: '0',
       type: 'get old',
     }))
+    sendMessage(socket)
+    closeChat(socket)
   });
   // Рендер сообщений
   socket.addEventListener('message', event => {
-    setMessage(event.data, socketData.userId)
+    // Если приходит массив, компонент перерисовывается
+    if (Array.isArray(JSON.parse(event.data))) {
+      setMessage(event.data, socketData.userId)
+    } else {
+      // Получения нового массива с сообщениями
+      socket.send(JSON.stringify({
+        content: "0",
+        type: "get old"
+      }))
+    }
   });
 }
 // Установка титула чата
-function setChatTitle(id: string){
+function setChatTitle(id: string) {
   // Получение списка чатов
   chatApi.get().then((res) => {
     // Выбор нужного чата
     res.forEach((item) => {
       // При соответствии устанавливает аватар и титул чата
-      if(item.id === id){
+      if (item.id === id) {
         document.getElementById("chat_title")!.textContent = `${item.title} id: ${id}`
         document.getElementById("chat_avatar")!.style.background = `url(https://ya-praktikum.tech/api/v2/resources/${item.avatar})`
       }
@@ -56,7 +66,7 @@ function setChatTitle(id: string){
   })
 }
 // Установка сообщения
-function setMessage(data: string, userId: string){
+function setMessage(data: string, userId: string) {
   // Парс сообщений в объект
   const messages = JSON.parse(data)
   // Блок для сообщений и очистка его от прошлых сообщений
@@ -68,23 +78,40 @@ function setMessage(data: string, userId: string){
     const message = document.createElement("div")
     message.innerText = item.content
     message.classList.add("messages")
-    if(userId != item.user_id){
+    if (userId != item.user_id) {
       message.classList.add("messages-right")
     }
-    // Вставка сообщений на страницу
+    // Вставка сообщений на страницу и скролл его вниз
     chat_block!.append(message)
   })
 }
-
-function sendMessage(socket: WebSocket){
-  document.getElementById("chat")?.addEventListener("submit", (e) => {
+// Отправка сообщений
+function sendMessage(socket: WebSocket) {
+  // Очистка формы отправки сообщения от старых евентов
+  let chat_content: any = document.getElementById("chat_content")
+  let clone = document.getElementById("chat")?.cloneNode(true)
+  chat_content!.innerHTML = ""
+  // Функция отправки сообщения
+  let sendEvent = function (e) {
     e.preventDefault()
-    console.log("Ну не понимаю я как отправить сообщение, бъет ошибку что веб сокет уже открыт")
+    // Взятие контента сообщения
+    const messageInput = (<HTMLInputElement>document.getElementById("chat_message"))
+    // Отправка сообщения и очистка инпута
+    socket.send(JSON.stringify({
+      content: messageInput.value,
+      type: "message"
+    }))
+    messageInput.value = ""
+  }
+  // Навешивание функции отправки сообщения и вставка новой формы
+  clone!.addEventListener("submit", sendEvent)
+  chat_content?.append(clone)
+}
+// Закрытие Сокета
+function closeChat(socket: WebSocket) {
+  document.getElementById("chat_list")?.addEventListener("click", () => {
+    const chat_block = document.getElementById("chat_block")
+    chat_block!.innerHTML = ""
+    socket.close()
   })
-  // const content = "Hello Diana"
-  // const data = {
-  //   type: 'message',
-  //   content
-  // }
-  // socket.send(data);
 }

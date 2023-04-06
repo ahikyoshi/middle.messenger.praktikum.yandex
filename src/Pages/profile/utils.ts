@@ -5,9 +5,6 @@ import { userApi } from "../../Core/Api/userApi";
 // Функция получение данных пользователя, и заполнения данных пользователя
 export function getUserData() {
     signApi.read().then((res: any) => {
-        console.log(res.id)
-        // Получение данных пользователя
-        
         const data: any = {
             email: res.email,
             login: res.login,
@@ -40,15 +37,13 @@ export function getUserData() {
         } else {
             document.getElementById("profile_avatar")?.setAttribute("style", "background: red");
         }
-    });
+    }).catch((e) => Router.go("/"))
 }
 // Функция отправки формы
 export function sendNewData() {
     setTimeout(() => {
-
         document.getElementById("profile_form")!.addEventListener("submit", (e) => {
             e.preventDefault();
-
             // Форма отправки пароля
             if (location.pathname === "/settings/password") {
                 const inputs = {
@@ -137,4 +132,9 @@ export function changeAvatar() {
 // Функция ошибки
 function profileError(error: string) {
     document.getElementById("profile-error")!.innerText = error;
+}
+// Функция выхода из аккаунта
+export async function logout() {
+    await signApi.leave();
+    Router.go("/")
 }

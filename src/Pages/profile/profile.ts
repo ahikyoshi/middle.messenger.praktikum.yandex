@@ -6,11 +6,10 @@ import Router from "../../Core/Router";
 import { Button } from "../../Components/Buttons/Buttons";
 import { Input } from "../../Components/Inputs/Inputs";
 // Utils
-import { changeAvatar, getUserData, sendNewData } from "./utils";
+import { changeAvatar, getUserData, logout, sendNewData } from "./utils";
 import validate from "../../utils/validation";
 // Styles
 import "./styles.scss";
-import { signApi } from "../../Core/Api/singApi";
 
 export class profile extends Block {
     constructor(props: any) {
@@ -110,8 +109,7 @@ export class profile extends Block {
             id: "",
             events: {
                 click: () => {
-                    signApi.leave();
-                    Router.go("/signin");
+                    logout()
                 }
             }
         });
