@@ -1,25 +1,33 @@
+// Core
 import Block from "../../Core/Component";
 import template from "./template";
+// Styles
 import "./styles.scss";
-
+// Interface
 interface Props{
     text: string
     name: string
     type: string
     id: string
+    readonly?: boolean 
     styles: string
     events: object
 }
 
-class Input extends Block{
+export class Input extends Block{
     constructor(props: Props){
-        super("div",props);
-        this.props.data_validate = "false";
-    }
+        super(props);
 
+        let input = this.getContent()
+        if(this.props.readonly === true){
+            input?.setAttribute("readonly","readonly")
+        }else{
+            input?.setAttribute("data_validate","false")
+            input?.setAttribute("autofocus","true")
+        }
+    }
+    // Component render
     protected render(): DocumentFragment {
         return this.compile(template,this.props);
     }
 }
-
-export default Input;
