@@ -1,7 +1,6 @@
 import { chatApi } from "../../Core/Api/chatsApi";
 import { signApi } from "../../Core/Api/singApi";
-import Router from "../../Core/Router";
-
+import { chatList } from "../../Pages/chats/Components/ChatsList/ChatsList";
 // Инициализация чата
 export async function openChat(id: string) {
   setChatTitle(id);
@@ -60,6 +59,8 @@ function setChatTitle(id: string) {
     res.forEach((item) => {
       // При соответствии устанавливает аватар и титул чата
       if (item.id === id) {
+        // Кнопка опций
+        setChatMore(item)
         // Титул чата
         document.getElementById("chat_title")!.textContent = `${item.title} id: ${id}`
         // Аватар чата с сервера или шаблон
@@ -70,8 +71,6 @@ function setChatTitle(id: string) {
           let avatar = `https://sun9-2.userapi.com/impg/Jm6zvW5vic20JtwJZ2LfI6ekmrlD-oxpu3PsLA/51hs3lOtIyE.jpg?size=1051x1080&quality=95&sign=783170df0e41f19239b42e6e2f63bb25&c_uniq_tag=pTQKDny7JUpQrxS_NexcLtAr65IsX8GJtTnOKodR9uk&type=album`;
           document.getElementById("chat_avatar")!.style.background = `url(${avatar})`;
         }
-        // Кнопка опций
-        setChatMore(item)
       }
     })
   })
@@ -79,9 +78,12 @@ function setChatTitle(id: string) {
 // Установка блока more
 function setChatMore(item) {
   // Кнопка опций чата
-  const more_btn = document.getElementById("chat_more")
+  const more_btn = document.createElement("div")
+  more_btn.classList.add("chat-more")
+  document.getElementById("chat_info")?.append(more_btn)
   more_btn!.innerHTML = "..."
-  more_btn?.setAttribute("isOpen", "false")
+  more_btn!.setAttribute("isOpen", "false")
+  more_btn!.setAttribute("id", "chat_info")
   // Создания меню опций
   let more_menu = document.createElement("div")
   more_menu.classList.add("more-content")
@@ -112,6 +114,7 @@ function setChatMore(item) {
       more_menu.style.display = "block"
       more_btn.setAttribute("isOpen", "true")
     } else {
+      console.log("close")
       more_menu.style.display = "none"
       more_btn?.setAttribute("isOpen", "false")
     }
@@ -122,7 +125,7 @@ function removeChat(id: string){
   const data = {
     chatId: id
   }
-  chatApi.delete(data)
+  chatApi.delete(data).then(() => chatList.updateComponent())
 }
 // Установка сообщения
 function setMessage(data: string, userId: string) {
@@ -170,6 +173,7 @@ function sendMessage(socket: WebSocket) {
 function closeChat(socket: WebSocket) {
   document.getElementById("chat_list")?.addEventListener("click", () => {
     const chat_block = document.getElementById("chat_block")
+    console.log(document.getElementById("chat_id"))
     chat_block!.innerHTML = ""
     socket.close()
   })

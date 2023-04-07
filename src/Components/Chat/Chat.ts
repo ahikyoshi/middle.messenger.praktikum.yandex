@@ -31,9 +31,6 @@ class Component extends Block {
             events: {}
         })
     }
-    protected componentDidUpdate(oldProps: any, newProps: any): boolean {
-        openChat(this.props.chat_id)
-    }
     // Component render
     protected render(): DocumentFragment {
         return this.compile(template, this.props);

@@ -1,0 +1,137 @@
+@import url('../../../../styles/variables.scss');
+
+.chats-navigation{
+    width: 200px;
+    height: 100vh;
+    background-color: $primary_color;
+    border-right: 1px solid $secondary_color;
+
+    .navigation-profile{
+        width: 100%;
+        height: 17vh;
+        border-bottom: 1px solid $secondary_color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .navigation-profile-avatar{
+            width: 40px;
+            height: 40px;
+            margin-top: 10px;
+            border-radius: 100%;
+        }
+
+        .navigation-profile-name{
+            margin: 10px 0;
+            color: $primary_text;
+            font-size: 18px;
+            font-family: Pro;
+            font-weight: bold;
+        }
+
+        .navigation-profile-btn{
+            width: 100%;
+            height: 40px;
+
+            &:hover{
+                background-color: $secondary_color;
+            }
+        }
+    }
+
+    .navigation-chatlist{
+        height: 78vh;
+        overflow: hidden;
+
+        .navigation-chatlist-item{
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            &:hover{
+                cursor: pointer;
+                background: $secondary_color;
+            }
+
+            .navigation-chatlist-img{
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+                border-radius: 100%;
+                background-size: cover !important;
+            }
+
+            .navigation-chatlist-info{
+                width: 110px;
+                height: 40px;
+                color: $primary_text;
+                font-family: Pro;
+                text-indent: 2px;
+                overflow-y: hidden;
+
+                .navigation-chatlist-name{
+                    width: 100%;
+                    height: 20px;
+                    font-weight: bold;
+                }
+
+                .navigation-chatlist-last{
+                    height: 20px;
+                    font-size: 12px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+
+    .navigation-newChat-btn{
+        width: 100%;
+        height: 5vh;
+
+        &:hover{
+            background: $secondary_color;
+        }
+    }
+
+    .navigation-newChat-layout{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(0 0 0 / 40%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        .navigation-newChat-form{
+            width: 400px;
+            height: auto;
+            padding: 50px 0;
+            background-color: $primary_color;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navigation-newChat-title{
+            font-size: 26px;
+            font-family: Pro;
+            color: $primary_text;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .navigation-newChat-input{
+            width: 200px;
+            height: 40px;
+        }
+
+        .navigation-newChat-send{
+            width: 200px;
+            height: 40px;
+            margin: 50px 0 20px;
+        }
+    }
+}

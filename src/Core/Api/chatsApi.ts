@@ -20,6 +20,18 @@ class Api extends BaseAPI{
     avatar(data: any){
         return this.http.put("avatar", data)
     }
+
+    getUsers(path: string){
+        return this.http.get(`/${path}/users`)
+    }
+
+    addUsers(data: any){
+        return this.http.put("/users",data)
+    }
+
+    removeUser(data: any){
+        return this.http.delete("/users", data)
+    }
     
 }
 

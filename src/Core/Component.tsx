@@ -174,8 +174,7 @@ class Block<P extends Record<string, any> = any>{
     return new DocumentFragment();
   }
 
-  updateComponent(){
-    console.log("update")
+  public updateComponent(){
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
   }
 
