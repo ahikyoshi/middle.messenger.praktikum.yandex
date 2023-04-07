@@ -11,6 +11,7 @@ export async function componentInit(props) {
     setNavigationData(props);
     // Получение списков чата
     await chatApi.get().then((res) => {props.chats = res;}).catch((e) => console.log(e));
+
     chatList.setProps({
         chat_list: props.chats
     });

@@ -31,6 +31,7 @@
         .navigation-profile-btn{
             width: 100%;
             height: 40px;
+
             &:hover{
                 background-color: $secondary_color;
             }
@@ -39,6 +40,7 @@
     .navigation-chatlist{
         height: 78vh;
         overflow: hidden;
+
         .navigation-chatlist-item{
             height: 50px;
             display: flex;
@@ -47,6 +49,7 @@
                 cursor: pointer;
                 background: $secondary_color;
             }
+
             .navigation-chatlist-img{
                 width: 40px;
                 height: 40px;
@@ -54,6 +57,7 @@
                 border-radius: 100%;
                 background-size: cover !important;
             }
+
             .navigation-chatlist-info{
                 width: 110px;
                 height: 40px;
