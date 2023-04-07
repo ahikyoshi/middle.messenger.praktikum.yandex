@@ -10,7 +10,8 @@ export async function componentInit(props) {
     await signApi.read().then((res) => { props.user = res; localStorage.setItem("userId", res.id); }).catch((e) => Router.go("/"));
     setNavigationData(props);
     // Получение списков чата
-    await chatApi.get().then((res) => props.chats = res).catch((e) => console.log(e));
+    await chatApi.get().then((res) => {props.chats = res;}).catch((e) => console.log(e));
+
     chatList.setProps({
         chat_list: props.chats
     });

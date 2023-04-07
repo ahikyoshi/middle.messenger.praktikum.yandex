@@ -28,7 +28,6 @@
             font-family: Pro;
             font-weight: bold;
         }
-
         .navigation-profile-btn{
             width: 100%;
             height: 40px;
@@ -38,7 +37,6 @@
             }
         }
     }
-
     .navigation-chatlist{
         height: 78vh;
         overflow: hidden;
@@ -47,7 +45,6 @@
             height: 50px;
             display: flex;
             align-items: center;
-
             &:hover{
                 cursor: pointer;
                 background: $secondary_color;
