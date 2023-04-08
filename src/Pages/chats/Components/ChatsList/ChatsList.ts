@@ -81,7 +81,6 @@ class Component extends Block {
         // Проверка на наличие списка чатов в пропсках
         if(oldProps.chat_list != undefined && newProps.chat_list != undefined){
             // Проверка идентичности пропсов, если разные, перерендер делаем
-            if(!isEqual(oldProps.chat_list, newProps.chat_list)){
                 // Прогоняем пропсы
                 newProps.chat_list.forEach((item: any) => {
                     // Меняем картинку на шаблон если ее нет
@@ -106,7 +105,7 @@ class Component extends Block {
                         });
                     }, 200);
                 });
-            }
+            
         }
         return true;
     }
