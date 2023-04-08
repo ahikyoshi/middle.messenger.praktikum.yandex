@@ -104,7 +104,6 @@ class Component extends Block {
                         });
                     }, 200);
                 });
-
         }
         return true;
     }

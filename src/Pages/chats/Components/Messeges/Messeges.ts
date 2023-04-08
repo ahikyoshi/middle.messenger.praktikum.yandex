@@ -40,7 +40,7 @@ class Component extends Block {
                     document.getElementById("sendMessegeForm")!.addEventListener("submit", (e) => {
                         e.preventDefault();
                         const message = (<HTMLInputElement>document.getElementById("sendMessegeInput")).value;
-                        if(message === ""){
+                        if(message.trim() === "" || message.trim() === " "){
                             return false
                         }
                         newProps.socket.send(JSON.stringify({
