@@ -12,7 +12,7 @@ function isArrayOrObject(value: any){
     return isPlainObject(value) || isArray(value)
 }
 
-export function isEqual(lhs,rhs){
+export function isEqual(lhs: { [s: string]: unknown; } | ArrayLike<unknown>,rhs: { [x: string]: any; }){
 
     if(Object.keys(lhs).length !== Object.keys(rhs).length){
         return false

@@ -40,6 +40,9 @@ class Component extends Block {
                     document.getElementById("sendMessegeForm")!.addEventListener("submit", (e) => {
                         e.preventDefault();
                         const message = (<HTMLInputElement>document.getElementById("sendMessegeInput")).value;
+                        if(message === ""){
+                            return false
+                        }
                         newProps.socket.send(JSON.stringify({
                             content: message,
                             type: "message",
