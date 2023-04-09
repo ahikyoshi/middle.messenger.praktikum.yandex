@@ -1,0 +1,21 @@
+@import '../../../../styles/variables.scss';
+
+.chats-sendMessege-form{
+    height: 50px;
+    background-color: $primary_color;
+    border-top: 1px solid $secondary_color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .chats-sendMessege-input{
+        width: 50%;
+        height: 30px;
+    }
+
+    .chats-sendMessege-btn{
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+    }
+}

@@ -9,19 +9,25 @@ interface Props{
     name: string
     type: string
     id: string
+    readonly?: boolean 
     styles: string
     events: object
 }
 
-class Input extends Block{
+export class Input extends Block{
     constructor(props: Props){
         super(props);
-        this.props.data_validate = "false";
+
+        let input = this.getContent()
+        if(this.props.readonly === true){
+            input?.setAttribute("readonly","readonly")
+        }else{
+            input?.setAttribute("data_validate","false")
+            input?.setAttribute("autofocus","true")
+        }
     }
     // Component render
     protected render(): DocumentFragment {
         return this.compile(template,this.props);
     }
 }
-// Export
-export default Input;

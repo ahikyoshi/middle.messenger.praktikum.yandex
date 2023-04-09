@@ -2,7 +2,7 @@
 import Block from "../../Core/Component";
 import template from "./template";
 // Components
-import Button from "../../Components/Buttons/Buttons";
+import { Button } from "../../Components/Buttons/Buttons";
 // Styles
 import "./styles.scss";
 

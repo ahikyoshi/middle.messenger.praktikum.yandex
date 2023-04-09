@@ -1,0 +1,8 @@
+@import url('../../../styles/variables.scss');
+
+.chats{
+    .chat{
+        width: calc(100% - 200px);
+        height: 100vh;
+    }
+}
