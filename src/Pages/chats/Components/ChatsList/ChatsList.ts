@@ -9,7 +9,6 @@ import { Messeges } from "../Messeges/Messeges";
 import { ChatHeader } from "../ChatHeader/ChatHeader";
 // Utils
 import { newChat } from "./utils";
-import { isEqual } from "../../../../utils/isEqual";
 // Styles
 import "./styles.scss";
 

@@ -7,7 +7,7 @@ import { ChatHeader } from "./Components/ChatHeader/ChatHeader";
 import { Messeges } from "./Components/Messeges/Messeges";
 import { SendMessege } from "./Components/SendMessage/SendMessage";
 // Styles
-import "./Styles/styles.scss";
+import "./styles/styles.scss";
 // utils
 import { componentInit } from "./utils";
 

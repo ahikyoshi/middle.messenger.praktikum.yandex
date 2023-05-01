@@ -14,7 +14,8 @@ export default function template(props: any) {
                 {props.chat_list.map((item: any) => {
                     return (
                         <li className="navigation-chatlist-item" id={`chatId_${item.id}`}>
-                            <div className="navigation-chatlist-img" style={`background-image: url(${item.avatar})`}></div>
+                            <img className="navigation-chatlist-img" src={item.avatar} alt="chat avatar" />
+                            <div className="asd"></div>
                             <div className="navigation-chatlist-info">
                                 <div className="navigation-chatlist-name">{item.title}</div>
                                 <div className="navigation-chatlist-last">{item.last_message === null ? "No messages" : item.last_message.content}</div>
