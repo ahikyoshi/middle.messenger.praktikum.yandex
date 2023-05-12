@@ -42,7 +42,7 @@ module.exports = {
   ],
   module: {
     rules: [
-      { test: /\.tsx?$/, use: [{loader: "ts-loader", options: {configFile: path.resolve(__dirname, "./tsconfig.json")}}], exclude: /node_modules/, },
+      { test: /\.tsx?$/, use: [{loader: "ts-loader", options: {configFile: path.resolve(__dirname, "../tsconfig.json")}}], exclude: /node_modules/, },
       { test: /\.css$/i, use: [MiniCssExtractPlugin.loader, 'css-loader'] }, // правила для css
       { test: /\.s[ac]ss$/i, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] }, // правила для scss
       { test: /\.(png|jpe?g|gif|svg|webp|ico)$/i, type: 'asset/inline' }, // правила для изображений

@@ -22,7 +22,7 @@ export class signUp extends Block {
         // Document title
         document.title = "Personal.chats - Sign Up";
         // Request
-        signApi.read().then((res) => { typeof res === "object" && Router.go("/messenger") }).catch((e) => {})
+        signApi.read().then((res) => { typeof res === "object" && Router.go("/messenger") })
         // Children
         // buttons
         this.children.signUpButton = new Button({

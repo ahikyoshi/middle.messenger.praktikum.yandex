@@ -23,7 +23,7 @@ export class signIn extends Block {
         // Document title
         document.title = "Personal.chats - Sign In";
         // Request
-        signApi.read().then(() => Router.go("/messenger")).catch((e) => {})
+        signApi.read().then(() => Router.go("/messenger"))
         // Children
         this.children.signInButton = new Button({
             text: "sign in",

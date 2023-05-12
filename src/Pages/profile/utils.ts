@@ -37,7 +37,7 @@ export function getUserData() {
         } else {
             document.getElementById("profile_avatar")?.setAttribute("style", "background: red");
         }
-    }).catch((e) => Router.go("/"))
+    }).catch(() => Router.go("/"))
 }
 // Функция отправки формы
 export function sendNewData() {
