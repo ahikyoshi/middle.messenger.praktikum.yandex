@@ -6,7 +6,12 @@
     "build": "webpack --config ./configs/webpack.config.js",
     "dev": "webpack-dev-server --config ./configs/webpack.config.js",
     "eslint": "npx eslint ./src",
-    "test": "node --loader ts-node/esm ./node_modules/mocha/bin/mocha --extension ts"
+    "test": "node --loader ts-node/esm ./node_modules/mocha/bin/mocha --extension ts",
+    "ts:check": "tsc --noEmit",
+    "lint": "eslint  src/ --ext .ts",
+    "lint:styles": "stylelint  src/**/*.css",
+    "lint:styles:fix": "stylelint  src/**/*.css --fix",
+    "lint:fix": "eslint src/ --ext .ts --fix",
   },
   "engines": {
     "node": ">=12",
@@ -18,6 +23,17 @@
       "pre-push": "npm run other command",
       "...": "..."
     }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "npm run lint:fix"
+    ],
+    "src/**/*.css": [
+      "npm run lint:styles:fix"
+    ],
+    "src/**/*.html": [
+      "prettier --write"
+    ]
   },
   "targets": {
     "regular": {
