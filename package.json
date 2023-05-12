@@ -12,6 +12,13 @@
     "node": ">=12",
     "browsers": "> 0.25%"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint:all",
+      "pre-push": "npm run other command",
+      "...": "..."
+    }
+  },
   "targets": {
     "regular": {
       "context": "browser",
@@ -53,6 +60,7 @@
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
+    "husky": "^8.0.3",
     "mini-css-extract-plugin": "^2.7.5",
     "mocha": "^10.2.0",
     "sass-loader": "^13.2.2",
