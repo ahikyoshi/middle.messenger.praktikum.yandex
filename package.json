@@ -32,13 +32,10 @@
   },
   "lint-staged": {
     "src/**/*.ts": [
-      "npm run lint:fix"
+      "npm run lint"
     ],
-    "src/**/*.css": [
-      "npm run lint:styles:fix"
-    ],
-    "src/**/*.html": [
-      "prettier --write"
+    "src/**/*.scss": [
+      "npm run lint:styles"
     ]
   },
   "author": "ahiky (ahikyoshi@gmail.com)",
