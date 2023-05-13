@@ -7,7 +7,7 @@ export default function validate(event: { target: { id: string; getBoundingClien
     if (input.value === "") {
         validation_error = "Заполните поле";
     }
-    // Валидация по типу check
+    // Валидация по типу 
     else {
         switch (type) {
             case "name":
