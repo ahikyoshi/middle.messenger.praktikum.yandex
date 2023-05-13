@@ -11,7 +11,7 @@
     "lint": "eslint  src/ --ext .ts",
     "lint:styles": "stylelint  src/**/*.css",
     "lint:styles:fix": "stylelint  src/**/*.css --fix",
-    "lint:fix": "eslint src/ --ext .ts --fix"
+    "lint:fix": "eslint src/ --ext .ts"
   },
   "engines": {
     "node": ">=12",
