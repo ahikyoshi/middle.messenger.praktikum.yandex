@@ -7,11 +7,12 @@
     "dev": "webpack-dev-server --config ./configs/webpack.config.js",
     "eslint": "npx eslint ./src",
     "test": "node --loader ts-node/esm ./node_modules/mocha/bin/mocha --extension ts",
+    "prepare": "husky install",
     "ts:check": "tsc --noEmit",
     "lint": "eslint  src/ --ext .ts",
     "lint:styles": "stylelint  src/**/*.css",
-    "lint:styles:fix": "stylelint  src/**/*.css --fix",
-    "lint:fix": "eslint src/ --ext .ts --fix"
+    "lint:styles:fix": "stylelint  src/**/*.css",
+    "lint:fix": "eslint src/ --ext .ts"
   },
   "engines": {
     "node": ">=12",
@@ -74,7 +75,7 @@
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "mini-css-extract-plugin": "^2.7.5",
     "mocha": "^10.2.0",
     "sass-loader": "^13.2.2",
