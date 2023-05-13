@@ -2,32 +2,32 @@ import { BaseAPI } from "./BaseAPI";
 
 class Api extends BaseAPI{
     constructor(){
-        super("/user")
+        super("/user");
     }
 
     change(data: object){
-        return this.http.put("/profile", data)
+        return this.http.put("/profile", data);
     }
 
     avatar(data: object){
-        return this.http.put("/profile/avatar", data)
+        return this.http.put("/profile/avatar", data);
     }
 
     password(data: object){
-        return this.http.put("/password", data)
+        return this.http.put("/password", data);
     }
 
     getUser(id: string){
-        return this.http.get(`/${id}`)
+        return this.http.get(`/${id}`);
     }
 
     searchUser(data: object){
-        return this.http.post("/search", data)
+        return this.http.post("/search", data);
     }
 
-    create = undefined
-    delete = undefined
-    update = undefined
+    create = undefined;
+    delete = undefined;
+    update = undefined;
 }
 
-export const userApi = new Api()
+export const userApi = new Api();

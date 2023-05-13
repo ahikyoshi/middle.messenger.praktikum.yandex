@@ -26,7 +26,7 @@ export function getUserData() {
         // Заполнение полей профиля информацией о пользователе
         let i = 0;
         for (const key in data) {
-            (<HTMLInputElement>inputs[i])!.value = data[key]
+            (<HTMLInputElement>inputs[i])!.value = data[key];
             i++;
         }
         // Отображаемое имя пользователя
@@ -37,7 +37,7 @@ export function getUserData() {
         } else {
             document.getElementById("profile_avatar")?.setAttribute("style", "background: red");
         }
-    }).catch(() => Router.go("/"))
+    }).catch(() => Router.go("/"));
 }
 // Функция отправки формы
 export function sendNewData() {
@@ -136,5 +136,5 @@ function profileError(error: string) {
 // Функция выхода из аккаунта
 export async function logout() {
     await signApi.leave();
-    Router.go("/")
+    Router.go("/");
 }

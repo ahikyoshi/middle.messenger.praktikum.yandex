@@ -10,10 +10,10 @@ export function sendForm(){
 
         const login = (<HTMLInputElement>document.getElementById("signIn_login")).value;
         const password = (<HTMLInputElement>document.getElementById("signIn_password")).value;
-        const error = (<HTMLElement>document.getElementById("signin_error"))
+        const error = (<HTMLElement>document.getElementById("signin_error"));
 
         if (login === "" || password === "") {
-            error.innerHTML = "Enter login and password please"
+            error.innerHTML = "Enter login and password please";
             return false;
         }
 
@@ -24,6 +24,6 @@ export function sendForm(){
         
         signApi.signIn(send)
             .then(() => Router.go("/messenger"))
-            .catch((res) => {error.innerHTML = res.reason})
+            .catch((res) => {error.innerHTML = res.reason;});
     };
 }
