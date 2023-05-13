@@ -8,7 +8,7 @@ export enum Method {
 
 type Options = {
     method: Method;
-    data?: any;
+    data?: unknown;
 };
 
 export default class HTTPTransport {
@@ -75,9 +75,8 @@ export default class HTTPTransport {
             xhr.ontimeout = () => reject({ reason: "timeout" });
 
             if(data instanceof FormData){
-                console.log("")
+                console.log("");
             }else{
-                
                 xhr.setRequestHeader("Content-Type", "application/json");
             }
 

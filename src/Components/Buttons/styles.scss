@@ -1,26 +1,30 @@
 @import '../../styles/variables.scss';
+
 .button_main{
-    background: $primary_btn;
-    border-radius: 10px;
-    border: none;
     color: $primary_text;
-    font-size: 18px;
     font-weight: 100;
+    font-size: 18px;
     font-family: Pro;
+    background: $primary_btn;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+
     &:hover{
         background-color: $secondary_btn;
         border: 2px inset $primary_btn;
     }
 }
+
 .button_sub{
+    color: $primary_text;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Pro;
+    text-transform: uppercase;
     background: none;
     border: none;
-    color: $primary_text;
-    font-family: Pro;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
+
     &:hover{
         color: white;
         cursor: pointer;

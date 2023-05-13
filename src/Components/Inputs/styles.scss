@@ -1,13 +1,15 @@
 @import '../../styles/variables.scss';
+
 .input_main{
+    color: $primary_text;
+    font-family: Pro;
+    text-indent: 2px;
     background: none;
     border: none;
     border-bottom: 1px solid $secondary_color;
-    text-indent: 2px;
-    color: $primary_text;
-    font-family: 'Pro';
+
     &::placeholder{
-        font-size: 14px;
         color: $primary_text;
+        font-size: 14px;
     }
 }

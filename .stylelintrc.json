@@ -7,5 +7,9 @@
         "stylelint-order",
         "stylelint-scss"
     ],
-    "rules": {}
+    "rules": {
+        "import-notation": null,
+        "selector-class-pattern": null,
+        "font-family-no-missing-generic-family-keyword": null
+    }
 }

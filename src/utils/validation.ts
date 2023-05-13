@@ -9,10 +9,12 @@ export default function validate(event: { target: { id: string; getBoundingClien
     }
     // Валидация по типу 
     else {
+        let regex: RegExp;
         switch (type) {
             case "name":
-                const regex_name = new RegExp("^[a-zа-яA-ZА-Я\-]+$");
-                if (regex_name.test(input.value)) {
+                //eslint-disable-next-line
+                regex = new RegExp("^[a-zа-яA-ZА-Я\-]+$");
+                if (regex.test(input.value)) {
                     if (input.value[0] === input.value[0].toLowerCase()) {
                         validation_error = "Первая буква должна быть заглавной";
                     } else {
@@ -23,8 +25,9 @@ export default function validate(event: { target: { id: string; getBoundingClien
                 }
                 break;
             case "last_name":
-                const regex_lastName = new RegExp("^[a-zа-яA-ZА-Я\-]+$");
-                if (regex_lastName.test(input.value)) {
+                //eslint-disable-next-line
+                regex = new RegExp("^[a-zа-яA-ZА-Я\-]+$");
+                if (regex.test(input.value)) {
                     if (input.value[0] === input.value[0].toLowerCase()) {
                         validation_error = "Первая буква должна быть заглавной";
                     } else {
@@ -35,32 +38,32 @@ export default function validate(event: { target: { id: string; getBoundingClien
                 }
                 break;
             case "email":
-                const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-                if (EMAIL_REGEXP.test(input.value)) {
+                regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+                if (regex.test(input.value)) {
                     validation_error = "";
                 } else {
                     validation_error = "Некорректная почта";
                 }
                 break;
             case "phone":
-                const phone_REGEXP = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
-                if (phone_REGEXP.test(input.value)) {
+                regex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
+                if (regex.test(input.value)) {
                     validation_error = "";
                 } else {
                     validation_error = "Некорректный номер телефона";
                 }
                 break;
             case "password":
-                const password_REGEXP = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{8,40})\S$/;
-                if (password_REGEXP.test(input.value)) {
+                regex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{8,40})\S$/;
+                if (regex.test(input.value)) {
                     validation_error = "";
                 } else {
                     validation_error = "Пароль должен содержать цифру и заглавную букву, от 8 до 40 цифер";
                 }
                 break;
             case "login":
-                const login_REGEXP = /^(?=\S*?[a-z])(?=.{3,20}$)(?![_.-])(?!.*[_.-]{2})[a-zA-Z0-9_-]+([^._-])$/;
-                if (login_REGEXP.test(input.value)) {
+                regex = /^(?=\S*?[a-z])(?=.{3,20}$)(?![_.-])(?!.*[_.-]{2})[a-zA-Z0-9_-]+([^._-])$/;
+                if (regex.test(input.value)) {
                     validation_error = "";
                 } else {
                     validation_error = "Должен содержать буквы, от 3 до 20 символов";

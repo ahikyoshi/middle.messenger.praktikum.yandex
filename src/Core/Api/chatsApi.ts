@@ -13,11 +13,11 @@ class Api extends BaseAPI{
         return this.http.post("", data);
     }
 
-    delete(data: any){
+    delete(data: unknown){
         return this.http.delete("",data);
     }
 
-    avatar(data: any){
+    avatar(data: unknown){
         return this.http.put("avatar", data);
     }
 
@@ -25,11 +25,11 @@ class Api extends BaseAPI{
         return this.http.get(`/${path}/users`);
     }
 
-    addUsers(data: any){
+    addUsers(data: unknown){
         return this.http.put("/users",data);
     }
 
-    removeUser(data: any){
+    removeUser(data: unknown){
         return this.http.delete("/users", data);
     }
     

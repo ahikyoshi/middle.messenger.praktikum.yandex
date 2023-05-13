@@ -1,11 +1,12 @@
 @import "../../../../styles/variables.scss";
+
 .chat-header{
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 50px;
     background-color: $primary_color;
     border-bottom: 1px solid $secondary_color;
-    display: flex;
-    align-items: center;
 
     .chat-header-avatar{
         width: 40px;
@@ -16,35 +17,35 @@
     .chat-header-title{
         width: 70%;
         margin-left: 10px;
-        font-family: Pro;
-        font-weight: bold;
         color: $primary_text;
+        font-weight: bold;
+        font-family: Pro;
     }
 
     .chat-header-btns{
-        width: 300px;
         display: flex;
         justify-content: space-evenly;
+        width: 300px;
     }
 
         .chat-adduser-form{
         position: fixed;
         top: 120px;
         left: calc(100vh - 350px);
-        width: 500px;
-        height: 300px;
-        border: 1px solid white;
-        background-color: $primary_color;
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 500px;
+        height: 300px;
+        background-color: $primary_color;
+        border: 1px solid white;
 
         .chat-adduser-title{
-            font-size: 24px;
+            margin-top: 40px;
             color: $primary_text;
             font-weight: bold;
+            font-size: 24px;
             font-family: Pro;
-            margin-top: 40px;
         }
 
         .chat-adduser-input{
@@ -63,46 +64,46 @@
 }
 
 .chat-header-userlist{
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 200px;
     height: 100vh;
     background: $primary_color;
     border-left: 1px solid $secondary_color;
-    position: absolute;
-    top: 0;
-    right: 0;
 
     .chat-userlist-title{
         width: 100%;
         height: 40px;
         margin-top: 20px;
         color: $primary_text;
-        text-align: center;
-        font-size: 24px;
         font-weight: bold;
+        font-size: 24px;
         font-family: Pro;
+        text-align: center;
     }
 
     .chat-userlist-items{
         height: 600px;
 
         .chat-userlist-item{
-            width: 100%;
-            height: 50px;
             display: flex;
             align-items: center;
+            width: 100%;
+            height: 50px;
 
             .chat-userlist-img{
                 width: 40px;
                 height: 40px;
-                border-radius: 100%;
                 margin-left: 5px;
+                border-radius: 100%;
             }
 
             .chat-userlist-name{
                 margin-left: 5px;
+                color: $primary_text;
                 font-size: 20px;
                 font-family: pro;
-                color: $primary_text;
             }
         }
     }
@@ -110,8 +111,8 @@
     .chat-userlist-close{
      width: 100%;
      height: 50px;
-     text-align: center;
      line-height: 50px;
+     text-align: center;
      cursor: pointer;
 
      &:hover{
