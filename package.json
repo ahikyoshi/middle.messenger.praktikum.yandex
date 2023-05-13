@@ -11,7 +11,7 @@
     "lint": "eslint  src/ --ext .ts",
     "lint:styles": "stylelint  src/**/*.css",
     "lint:styles:fix": "stylelint  src/**/*.css --fix",
-    "lint:fix": "eslint src/ --ext .ts --fix",
+    "lint:fix": "eslint src/ --ext .ts --fix"
   },
   "engines": {
     "node": ">=12",
@@ -26,9 +26,10 @@
   },
   "lint-staged": {
     "src/**/*.ts": [
-      "npm run lint:fix"
+      "npm run lint:fix",
+      "git add"
     ],
-    "src/**/*.css": [
+    "src/**/*.scss": [
       "npm run lint:styles:fix"
     ],
     "src/**/*.html": [
