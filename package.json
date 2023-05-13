@@ -24,10 +24,10 @@
   },
   "lint-staged": {
     "src/**/*.ts": [
-      "npm run lint"
+      "npm run lint:fix"
     ],
     "src/**/*.css": [
-      "npm run lint:styles"
+      "npm run lint:styles:fix"
     ],
     "src/**/*.html": [
       "prettier --write"
