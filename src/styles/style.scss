@@ -1,36 +1,39 @@
 @import './variables.scss';
-
 *{
-    box-sizing: border-box;
     margin: 0;
-    padding: 0;}
+    padding: 0;
+    box-sizing: border-box;
+}
 
 main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
     background-color: #171717;
     background-image: url('../assets/images/bg.jpg');
-    background-size: cover;}
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
 @font-face {
     font-family: Pro;
-    src: url('../assets/fonts/AnonymousPro-Regular.ttf');}
+    src: url('../assets/fonts/AnonymousPro-Regular.ttf');
+}
 
 input:focus{
-    outline: none;}
+    outline: none;
+}
 
 .tooltip{
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 200px;
     height: 30px;
+    background: $secondary_color;
+    border-radius: 0 5px 5px 5px;
     color: $primary_text;
     font-size: 10px;
-    background: $secondary_color;
-    border-radius: 0 5px 5px;}
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
