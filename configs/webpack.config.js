@@ -32,7 +32,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       // favicon: './assets/icons/header/logotype.png', // иконка проекта
-      template: './index.html', // указание основного html документа
+      template: './index.html', // указание основного html документа 
       filename: 'index.html', // Назване основного html файла
       minify: { // Минифицирование html
         collapseWhitespace: isProd

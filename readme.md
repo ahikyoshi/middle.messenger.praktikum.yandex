@@ -26,6 +26,13 @@
 
 ## Зависимости
 
+- [webpack, webpack-cli, webpack-dev-server](https://webpack.js.org/) - Для сервера разработки и сборки проекта
+- [mini-css-extract-plugin, terser-webpack-plugin, html-webpack-plugin]() -
+- [@types/react-dom]
+- [css-loader, sass-loader, node-sass]()
+- [husky]
+- [eslint, @typescript-eslint/eslint-plugin]()
+- [jest, jest-environment-jsdom, @babel/preset-typescript, @babel/preset-env, @babel/preset-react]()
 - [uuid для генерации айдишников для форм и т.д.](https://github.com/uuidjs/uuid)
 
 ---

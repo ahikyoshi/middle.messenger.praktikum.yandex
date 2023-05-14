@@ -1,6 +1,5 @@
 {
     "extends": [
-        "stylelint-config-rational-order",
         "stylelint-config-standard-scss"
     ],
     "plugins": [
@@ -16,6 +15,8 @@
         "scss/at-import-partial-extension": null,
         "scss/dollar-variable-pattern": null,
         "media-feature-range-notation": null,
-        "rule-empty-line-before": null
+        "rule-empty-line-before": null,
+        "color-function-notation": null,
+        "alpha-value-notation": null
     }
 }
