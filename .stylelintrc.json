@@ -15,6 +15,7 @@
         "no-invalid-position-at-import-rule": null,
         "scss/at-import-partial-extension": null,
         "scss/dollar-variable-pattern": null,
-        "media-feature-range-notation": null
+        "media-feature-range-notation": null,
+        "rule-empty-line-before": null
     }
 }

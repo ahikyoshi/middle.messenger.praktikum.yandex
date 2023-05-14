@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config ./configs/webpack.config.js",
     "dev": "webpack-dev-server --config ./configs/webpack.config.js",
-    "test": "node ./node_modules/mocha/bin/mocha --loader=ts-node/esm",
+    "test": "jest",
     "prepare": "husky install",
     "ts:check": "tsc --noEmit",
     "lint": "eslint  src/ --ext .ts",
