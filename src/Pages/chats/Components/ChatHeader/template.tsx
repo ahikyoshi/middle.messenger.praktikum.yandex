@@ -8,9 +8,9 @@ export default function template(props: any) {
             <div className="chat-header">
                 {props.isChatOpen === true ?
                     <>
-                        <label for="changeChatAvatar">
+                        {/* <label for="changeChatAvatar">
                             <img src={props.data.avatar} alt="" className="chat-header-avatar" />
-                        </label>
+                        </label> */}
                         <input type="file" hidden id="changeChatAvatar" />
                         <div className="chat-header-title">{props.data.title}</div>
                         <div className="chat-header-btns">

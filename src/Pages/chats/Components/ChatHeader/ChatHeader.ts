@@ -86,11 +86,7 @@ class Component extends Block {
             style: "chat-adduser-button",
             id: "",
             type: "submit",
-            events: {
-                click: () => {
-
-                }
-            }
+            events: {}
         });
         this.children.addUserInChatCancel = new Button({
             text: "cancel",

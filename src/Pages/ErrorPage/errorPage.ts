@@ -10,7 +10,7 @@ class error extends Block{
     constructor(props: { returnButton: Button; }){
         super(props);
         // Set titles for page
-        document.title = "Personal.chats - Ошибка"
+        document.title = "Personal.chats - Ошибка";
         // Functions
         if(window.location.pathname === "/error/404"){
             this.props.title = "404";

@@ -111,6 +111,7 @@ class Block<P extends Record<string, any> = any>{
   }
 
   protected componentDidUpdate(oldProps: any, newProps: any) {
+    console.log(oldProps, newProps)
     return true;
   }
 
@@ -146,7 +147,7 @@ class Block<P extends Record<string, any> = any>{
   protected compile(template: (context: any) => any, context: any) {
     const contextAndStubs = { ...context };
 
-    Object.entries(this.children).forEach(([name, component]) => {
+    Object.entries(this.children).forEach(([name, component]: any) => {
       contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
     });
     const html = template(contextAndStubs);
@@ -155,7 +156,7 @@ class Block<P extends Record<string, any> = any>{
     
 
     temp.innerHTML = html;
-    Object.entries(this.children).forEach(([_, component]) => {
+    Object.entries(this.children).forEach(([_, component]: any) => {
       const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
 
       if (!stub) {

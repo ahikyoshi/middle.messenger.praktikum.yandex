@@ -5,9 +5,9 @@ import { chatApi } from "../../Core/Api/chatsApi";
 import { signApi } from "../../Core/Api/singApi";
 import { chatList } from "./Components/ChatsList/ChatsList";
 // рендер страницы чаты
-export async function componentInit(props) {
+export async function componentInit(props: { user: any; chats: unknown; }) {
     // Получение данных пользователя
-    await signApi.read().then((res) => { props.user = res; localStorage.setItem("userId", res.id); }).catch((e) => Router.go("/"));
+    await signApi.read().then((res: any) => { props.user = res; localStorage.setItem("userId", res.id); }).catch(() => Router.go("/"));
     setNavigationData(props);
     // Получение списков чата
     await chatApi.get().then((res) => {props.chats = res;}).catch((e) => console.log(e));
@@ -17,7 +17,7 @@ export async function componentInit(props) {
     });
 }
 // Данные пользователя в боковой панели (Все ок)
-function setNavigationData(props) {
+function setNavigationData(props: { user: any; chats?: unknown; }) {
     chatList.setProps({
         display_name: props.user.display_name,
         avatar: `https://ya-praktikum.tech/api/v2/resources/${props.user.avatar}`

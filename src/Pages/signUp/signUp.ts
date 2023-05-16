@@ -22,9 +22,8 @@ export class signUp extends Block {
         // Document title
         document.title = "Personal.chats - Sign Up";
         // Request
-        signApi.read().then((res) => { typeof res === "object" && Router.go("/messenger") }).catch((e) => {})
+        signApi.read().then((res) => { typeof res === "object" && Router.go("/messenger"); });
         // Children
-        // buttons
         this.children.signUpButton = new Button({
             text: "sign up",
             theme: "main",
@@ -41,7 +40,7 @@ export class signUp extends Block {
             id: "dsa",
             events: {
                 click: () => {
-                    Router.go('/')
+                    Router.go("/");
                 }
             }
         });
@@ -53,7 +52,7 @@ export class signUp extends Block {
             type: "text",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "name");
                 }
             }
@@ -65,7 +64,7 @@ export class signUp extends Block {
             type: "text",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "last_name");
                 }
             }
@@ -77,7 +76,7 @@ export class signUp extends Block {
             id: "register_mail",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "email");
                 }
             }
@@ -89,7 +88,7 @@ export class signUp extends Block {
             id: "register_phone",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "phone");
                 }
             }
@@ -101,7 +100,7 @@ export class signUp extends Block {
             id: "register_login",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "name");
                 }
             }
@@ -113,7 +112,7 @@ export class signUp extends Block {
             id: "register_password",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "password");
                 }
             }
@@ -125,7 +124,7 @@ export class signUp extends Block {
             id: "register_passwordAgain",
             styles: "input_main signUp-input",
             events: {
-                focusout: (event: any) => {
+                focusout: (event: { target: HTMLInputElement }) => {
                     validate(event, "password");
                 }
             }
