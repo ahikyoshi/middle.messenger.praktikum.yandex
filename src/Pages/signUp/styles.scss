@@ -1,43 +1,49 @@
 @import '../../styles/variables.scss';
+
 .signUp-page{
     .signUp-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 340px;
         height: 588px;
         background: $primary_color;
         border-right: 2px solid $secondary_color;
         border-bottom: 2px solid $secondary_color;
         border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
         .signUp-title{
-            margin: 50px 0 30px 0;
-            font-size: 25px;
+            margin: 50px 0 30px;
             color: $primary_text;
             font-weight: 100;
+            font-size: 25px;
             font-family: Pro;
         }
+
         .signUp-inputs{
-            height: 335px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 335px;
+
             .signUp-input{
                 width: 287px;
                 height: 30px;
             }
         }
+
         #signUp_error{
             width: 280px;
-            margin-top: 10px;
             height: 10px;
-            font-size: 12px;
+            margin-top: 10px;
             color: $secondary_btn;
+            font-size: 12px;
         }
+
         .signUp-btn{
             width: 280px;
             height: 40px;
-            margin: 20px 0 30px 0;
+            margin: 20px 0 30px;
         }
     }    
 }

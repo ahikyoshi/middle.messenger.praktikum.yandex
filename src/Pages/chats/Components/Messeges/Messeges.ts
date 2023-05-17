@@ -41,7 +41,7 @@ class Component extends Block {
                         e.preventDefault();
                         const message = (<HTMLInputElement>document.getElementById("sendMessegeInput")).value;
                         if(message.trim() === "" || message.trim() === " "){
-                            return false
+                            return false;
                         }
                         newProps.socket.send(JSON.stringify({
                             content: message,

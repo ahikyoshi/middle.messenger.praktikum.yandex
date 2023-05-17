@@ -1,12 +1,12 @@
 @import '../../../../styles/variables.scss';
 
 .chats-sendMessege-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50px;
     background-color: $primary_color;
     border-top: 1px solid $secondary_color;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     .chats-sendMessege-input{
         width: 50%;

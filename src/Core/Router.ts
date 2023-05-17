@@ -1,6 +1,6 @@
 import Block from "./Component";
 
-export interface BlockConstructable<P = any> {
+export interface BlockConstructable<P extends Record<string, unknown> = any> {
   new(props: P): Block<P>;
 }
 
@@ -14,7 +14,7 @@ function render(query: string, block: Block) {
     throw new Error(`root not found by selector "${query}"`);
   }
 
-  root.innerHTML = '';
+  root.innerHTML = "";
 
   root.append(block.getContent()!);
 
@@ -71,7 +71,7 @@ export class Router {
   }
 
   public go(pathname: string) {
-    this.history.pushState({}, '', pathname);
+    this.history.pushState({}, "", pathname);
 
     this._onRoute(pathname);
   }
@@ -89,7 +89,7 @@ export class Router {
       const target = event.currentTarget as Window;
 
       this._onRoute(target.location.pathname);
-    }
+    };
 
     this._onRoute(window.location.pathname);
   }
@@ -115,4 +115,4 @@ export class Router {
   }
 }
 
-export default new Router('#root');
+export default new Router("#root");

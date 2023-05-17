@@ -109,7 +109,7 @@ export class profile extends Block {
             id: "",
             events: {
                 click: () => {
-                    logout()
+                    logout();
                 }
             }
         });

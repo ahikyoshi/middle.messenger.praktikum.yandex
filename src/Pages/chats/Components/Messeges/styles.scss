@@ -1,22 +1,22 @@
 @import '../../../../styles/variables.scss';
 
 .messeges{
-    height: calc(100vh - 100px);
-    width: 100%;
     top: 50px;
-    overflow-y: scroll;
+    width: 100%;
+    height: calc(100vh - 100px);
     overflow-x: hidden;
+    overflow-y: scroll;
 
     .messeges-message{
-        margin-top: 20px;
-        margin-left: 20px;
         max-width: 400px;
         height: auto;
+        margin-top: 20px;
+        margin-left: 20px;
         padding: 10px;
-        border-radius: 10px;
-        background-color: $primary_color;
         color: $primary_text;
-        font-family: Pro;
         font-size: 12px;
+        font-family: Pro;
+        background-color: $primary_color;
+        border-radius: 10px;
     }
 }

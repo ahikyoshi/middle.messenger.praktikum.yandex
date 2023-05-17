@@ -18,12 +18,12 @@ export class Input extends Block{
     constructor(props: Props){
         super(props);
 
-        let input = this.getContent()
+        const input = this.getContent();
         if(this.props.readonly === true){
-            input?.setAttribute("readonly","readonly")
+            input?.setAttribute("readonly","readonly");
         }else{
-            input?.setAttribute("data_validate","false")
-            input?.setAttribute("autofocus","true")
+            input?.setAttribute("data_validate","false");
+            input?.setAttribute("autofocus","true");
         }
     }
     // Component render
