@@ -4,7 +4,7 @@ export default function template(props: any) {
         props.chat_list = [];
     }
     return (
-        <div className="chats-navigation" id="chatList">
+        <div className="chats-navigation" id="chatList" >
             <div className="navigation-profile">
                 <img src={props.avatar} alt="Youre avatar" className="navigation-profile-avatar" />
                 <div className="navigation-profile-name">{props.display_name}</div>

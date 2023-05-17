@@ -3,11 +3,11 @@ export default function template(props: any) {
     return (
         <main className="chats">
             {props.chatList}
-            <div className="chat">
-                { props.ChatHeader}
+            < div className="chat">
+                {props.ChatHeader}
                 {props.Messeges}
                 {props.SendMessege}
             </div>
-        </main>
+        </main >
     );
 }

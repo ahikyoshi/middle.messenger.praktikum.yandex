@@ -1,12 +1,15 @@
 @import './variables.scss';
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 #root{
     width: 100%;
 }
+
 main{
     display: flex;
     justify-content: center;
@@ -38,4 +41,5 @@ input:focus{
     color: $primary_text;
     font-size: 10px;
     background: $secondary_color;
-    border-radius: 0 5px 5px;}
+    border-radius: 0 5px 5px;
+}

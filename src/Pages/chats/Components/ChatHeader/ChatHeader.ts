@@ -204,17 +204,6 @@ class Component extends Block {
             }
         });
     }
-    protected componentDidUpdate(oldProps: any, newProps: any): boolean {
-        // Открывает чат
-        if (oldProps.isChatOpen === false && newProps.isChatOpen === false) {
-            newProps.isChatOpen = true;
-        }
-        // Открывает первый раз чат
-        if (newProps.isChatOpen === undefined) {
-            newProps.isChatOpen = true;
-        }
-        return true;
-    }
     protected render(): DocumentFragment {
         return this.compile(template, this.props);
     }

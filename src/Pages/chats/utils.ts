@@ -4,6 +4,7 @@ import Router from "../../Core/Router";
 import { chatApi } from "../../Core/Api/chatsApi";
 import { signApi } from "../../Core/Api/singApi";
 import { chatList } from "./Components/ChatsList/ChatsList";
+// import { ChatHeader } from "./Components/ChatHeader/ChatHeader";
 // рендер страницы чаты
 export async function componentInit(props: { user: any; chats: unknown; }) {
     // Получение данных пользователя
@@ -16,7 +17,7 @@ export async function componentInit(props: { user: any; chats: unknown; }) {
         chat_list: props.chats
     });
 }
-// Данные пользователя в боковой панели (Все ок)
+// Данные пользователя в боковой панели
 function setNavigationData(props: { user: any; chats?: unknown; }) {
     chatList.setProps({
         display_name: props.user.display_name,

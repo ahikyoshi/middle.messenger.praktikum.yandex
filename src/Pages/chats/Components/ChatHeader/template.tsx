@@ -1,13 +1,17 @@
 import React from "../../../../Core/JSX";
+import { SendMessege } from "../SendMessage/SendMessage";
+
 export default function template(props: any) {
     if (props.data === undefined) {
         props.data = {};
     }
+    let isChatOpen = false
+    if(props.data.title != undefined){
+        isChatOpen = true
+        SendMessege.setProps({isChatOpen: true})
+    }
     return (
-        <>
-            <div className="chat-header">
-                {props.isChatOpen === true ?
-                    <>
+            <div className={isChatOpen === true ? "chat-header" : "chat-header_hide"}>
                         {/* <label for="changeChatAvatar">
                             <img src={props.data.avatar} alt="" className="chat-header-avatar" />
                         </label> */}
@@ -19,6 +23,7 @@ export default function template(props: any) {
 
                             <div className="chat-header-removeUser">{props.removeUserInChat}</div>
                         </div>
+                        {/* Окно добавление пользователя в чат */}
                         {props.isAddUserOpen === true ?
                             <form className="chat-adduser-form" id="chatAddUser">
                                 <div className="chat-adduser-title">New User</div>
@@ -29,6 +34,7 @@ export default function template(props: any) {
                             :
                             <></>
                         }
+                        {/* Окно удаление пользователя из чата */}
                         {props.isRemoveUserOpen === true ?
                             <form className="chat-adduser-form" id="chatRemoveUser">
                                 <div className="chat-adduser-title">Remove User</div>
@@ -39,6 +45,7 @@ export default function template(props: any) {
                             :
                             <></>
                         }
+                        {/* Показать всех пользователей */}
                         {props.showUsersInChat}
                         {props.isUserListOpen === true ?
                             <div className="chat-header-userlist">
@@ -49,11 +56,6 @@ export default function template(props: any) {
                             :
                             <></>
                         }
-                    </>
-                    :
-                    <></>
-                }
-            </div>
-        </>
+                    </div>
     );
 }

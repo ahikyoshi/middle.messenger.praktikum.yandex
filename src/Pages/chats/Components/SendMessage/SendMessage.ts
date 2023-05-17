@@ -13,15 +13,14 @@ class Component extends Block {
     }
     // Children
     protected init(): void {
-        this.props.isChatOpen = true;
+        this.props.isChatOpen = false
         this.children.sendMessegeButton = new Button({
             text: "S",
             theme: "main",
             style: "chats-sendMessege-btn",
             type: "submit",
             id: "",
-            events: {
-            }
+            events: {}
         });
         this.children.sendMessegeInput = new Input({
             text: "Youre message",

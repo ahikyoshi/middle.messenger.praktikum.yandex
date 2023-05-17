@@ -4,6 +4,7 @@
     top: 50px;
     width: 100%;
     height: calc(100vh - 100px);
+    padding: 10px 0;
     overflow-x: hidden;
     overflow-y: scroll;
 
@@ -19,4 +20,31 @@
         background-color: $primary_color;
         border-radius: 10px;
     }
+
+    &::-webkit-scrollbar{
+        width: 3px;
+        background-color: $primary_color;
+    }
+    
+    &::-webkit-scrollbar-thumb{
+        background-color: white;
+    }
+}
+
+.messeges_noMesseges{
+    width: 400px;
+    height: 120px;
+    margin: 200px auto;
+    border-radius: 10px;
+    background-color: $primary_color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Pro";
+    color: $primary_text;
+    font-size: 16px;
+}
+
+.messeges_noMesseges_hide{
+    display: none;
 }

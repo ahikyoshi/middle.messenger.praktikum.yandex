@@ -19,7 +19,8 @@ export class chats extends Block {
     protected init(): void {
         // Document title
         document.title = "Personal.chats - Chats";
-        //
+        // Функция инициализации
+        this.props.status = "hide"
         componentInit(this.props);
         // Компоненты
         this.children.chatList = chatList;
