@@ -1,4 +1,5 @@
 /dist
+/app
 /.parcel-cache
 /node_modules
 /.vscode

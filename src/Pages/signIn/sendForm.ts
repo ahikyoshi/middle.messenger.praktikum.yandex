@@ -5,7 +5,6 @@ export function sendForm(){
     const form = document.getElementById("signIn_form");
     
     form!.onsubmit = (event) => {
-
         event.preventDefault();
 
         const login = (<HTMLInputElement>document.getElementById("signIn_login")).value;

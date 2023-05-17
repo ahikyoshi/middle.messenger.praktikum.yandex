@@ -8,7 +8,7 @@ export default function template(props: any) {
             <div className="profile-content">
                 <form className="profile-form" id="profile_form">
                     <div className="profile-img" id="profile_avatar">
-                        <label for="profile_new_avatar" className="profile-img-change">Change avatar</label>
+                        {/* <label for="profile_new_avatar" className="profile-img-change">Change avatar</label> */}
                     </div>
                     <input name="avatar" type="file" id="profile_new_avatar" hidden/>
                     <h1 className="profile-title" id="profile_displayName">Choose display name</h1>

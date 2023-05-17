@@ -7,7 +7,7 @@ import { chatList } from "./Components/ChatsList/ChatsList";
 // рендер страницы чаты
 export async function componentInit(props) {
     // Получение данных пользователя
-    await signApi.read().then((res) => { props.user = res; localStorage.setItem("userId", res.id); }).catch((e) => Router.go("/"));
+    await signApi.read().then((res: any) => { props.user = res; localStorage.setItem("userId", res.id); }).catch((e) => Router.go("/"));
     setNavigationData(props);
     // Получение списков чата
     await chatApi.get().then((res) => {props.chats = res;}).catch((e) => console.log(e));
